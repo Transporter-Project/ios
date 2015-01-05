@@ -21,6 +21,7 @@
 		13BAB2AB1A5AD0A40043FA14 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2AA1A5AD0A40043FA14 /* Model.m */; };
 		13BAB2AF1A5AD17C0043FA14 /* DepartureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2AE1A5AD17C0043FA14 /* DepartureController.m */; };
 		13BAB2B21A5AD1A10043FA14 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2B11A5AD1A10043FA14 /* AppController.m */; };
+		13BAB2C01A5AE7530043FA14 /* libLightningTable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BAB2BF1A5AE7530043FA14 /* libLightningTable.a */; };
 		1900DFD6711BCA7B4F77F536 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5C251991BA43C6EB3D88C1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		13BAB2B01A5AD1A10043FA14 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		13BAB2B11A5AD1A10043FA14 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		13BAB2B31A5AD2070043FA14 /* TransporterKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransporterKit.h; sourceTree = "<group>"; };
+		13BAB2BF1A5AE7530043FA14 /* libLightningTable.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLightningTable.a; path = "LightningTable/build/Debug-iphoneos/libLightningTable.a"; sourceTree = "<group>"; };
 		5D5C251991BA43C6EB3D88C1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC16BC63B86762AA9B2A98B8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D7DE506647A4DFFD8770D211 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13BAB2C01A5AE7530043FA14 /* libLightningTable.a in Frameworks */,
 				13BAB2A51A5ACF830043FA14 /* MapKit.framework in Frameworks */,
 				13BAB2A31A5ACF7F0043FA14 /* CoreLocation.framework in Frameworks */,
 				1900DFD6711BCA7B4F77F536 /* libPods.a in Frameworks */,
@@ -199,6 +202,7 @@
 		F3A82BF8C8650DA70642086E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				13BAB2BF1A5AE7530043FA14 /* libLightningTable.a */,
 				5D5C251991BA43C6EB3D88C1 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -463,8 +467,17 @@
 			baseConfigurationReference = BC16BC63B86762AA9B2A98B8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"$(SRCROOT)/LightningTable/LightningTable\"",
+				);
 				INFOPLIST_FILE = Transporter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LightningTable/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -474,8 +487,17 @@
 			baseConfigurationReference = D7DE506647A4DFFD8770D211 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"$(SRCROOT)/LightningTable/LightningTable\"",
+				);
 				INFOPLIST_FILE = Transporter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LightningTable/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

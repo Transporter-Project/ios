@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LightningTable.h"
 
 @class DepartureController;
 
-@interface DeparturesViewController : UIViewController
+@interface DeparturesViewController : EKTableViewController
 
 @property (readonly, strong) DepartureController *departureController;
 

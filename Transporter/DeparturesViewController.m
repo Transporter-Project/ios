@@ -17,7 +17,7 @@
 
 - (instancetype)init
 {
-    if (self = [super init]) {
+    if (self = [super initWithStyle:EKTableViewStylePlain]) {
         
         self.title = @"Bournemouth";
         _departureController = [[AppController sharedController] departureController];
@@ -34,7 +34,14 @@
     
     [self.departureController departuresNearCoordinate:CLLocationCoordinate2DMake(50.723526, -1.905179) completion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
         
+        EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:departures footerTitle:nil selection:^(EKTableRowSelection *selection) {
+            
+            
+        }];
         
+        [self addSection:departureSection];
+        
+        [self.tableView reloadData];
     }];
 }
 

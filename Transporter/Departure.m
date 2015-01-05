@@ -7,6 +7,7 @@
 //
 
 #import "Departure.h"
+#import "TransporterKit.h"
 
 @implementation Departure
 
@@ -20,6 +21,18 @@
     }
     
     return self;
+}
+
+#pragma mark - Row
+
+- (NSString *)rowTitle
+{
+    return self.route.shortName;
+}
+
+- (NSString *)rowSubtitle
+{
+    return self.headsign;
 }
 
 @end

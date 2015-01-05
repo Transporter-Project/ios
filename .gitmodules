@@ -1,0 +1,3 @@
+[submodule "LightningTable"]
+	path = LightningTable
+	url = git@bitbucket.org:phillipcaudell/lightning-table.git

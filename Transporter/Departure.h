@@ -7,11 +7,12 @@
 //
 
 #import "Model.h"
+#import "LightningTable.h"
 
 @class Stop;
 @class Route;
 
-@interface Departure : Model
+@interface Departure : Model <EKTableRowProtocol>
 
 @property (readonly, strong) NSString *headsign;
 @property (readonly, strong) NSDate *departureDate;
