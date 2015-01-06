@@ -27,15 +27,17 @@
         [self.contentView addSubview:self.highlightView];
         
         self.textLabel.textColor = [UIColor whiteColor];
-        self.textLabel.font = [UIFont systemFontOfSize:24];
+        self.textLabel.font = [UIFont fontWithName:@"OpenSans" size:24];
         
         self.detailTextLabel.textColor = [UIColor whiteColor];
-        self.detailTextLabel.font = [UIFont boldSystemFontOfSize:14];
+        self.detailTextLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:14];
         
         self.departureLabel = [UILabel new];
         self.departureLabel.textColor = [UIColor whiteColor];
-        self.departureLabel.font = [UIFont systemFontOfSize:24];
+        self.departureLabel.font = [UIFont fontWithName:@"OpenSans" size:24];
         [self.contentView addSubview:self.departureLabel];
+        
+        NSLog(@"OPEN: %@", [UIFont fontNamesForFamilyName:@"Open Sans"]);
     }
     
     return self;
