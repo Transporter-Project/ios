@@ -8,6 +8,7 @@
 
 #import "Departure.h"
 #import "TransporterKit.h"
+#import "DepartureTableViewCell.h"
 
 @implementation Departure
 
@@ -25,14 +26,19 @@
 
 #pragma mark - Row
 
-- (NSString *)rowTitle
+- (void)configureRowCell:(DepartureTableViewCell *)cell
 {
-    return self.route.shortName;
+    cell.departure = self;
 }
 
-- (NSString *)rowSubtitle
+- (CGFloat)rowHeightForConstraintSize:(CGSize)contraintSize
 {
-    return self.headsign;
+    return 100;
+}
+
+- (Class)rowCellClass
+{
+    return [DepartureTableViewCell class];
 }
 
 @end

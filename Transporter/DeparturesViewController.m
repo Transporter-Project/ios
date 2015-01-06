@@ -8,6 +8,7 @@
 
 #import "DeparturesViewController.h"
 #import "TransporterKit.h"
+#import "MapTableRow.h"
 
 @interface DeparturesViewController ()
 
@@ -31,14 +32,11 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    [self.departureController departuresNearCoordinate:CLLocationCoordinate2DMake(50.723526, -1.905179) completion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
+    [self.departureController departuresNearCoordinate:CLLocationCoordinate2DMake(50.719752, -1.887052) completion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
         
-        EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:departures footerTitle:nil selection:^(EKTableRowSelection *selection) {
-            
-            
-        }];
-        
+        EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:departures footerTitle:nil selection:nil];
         [self addSection:departureSection];
         
         [self.tableView reloadData];
