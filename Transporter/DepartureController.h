@@ -10,12 +10,16 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AFNetworking/AFNetworking.h>
 
+@class Departure;
+
 @interface DepartureController : NSObject
 
 typedef void (^DepartureCompletion)(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error);
+typedef void (^TripDetailsCompletion)(NSArray *callingPoints, NSArray *stops, NSError *error);
 
 @property (nonatomic, strong) AFHTTPRequestOperationManager *requestManager;
 
 - (void)departuresNearCoordinate:(CLLocationCoordinate2D)coordinate completion:(DepartureCompletion)completion;
+- (void)tripDetailsForDeparture:(Departure *)departure completion:(TripDetailsCompletion)completion;
 
 @end

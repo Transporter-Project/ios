@@ -20,5 +20,6 @@
 @property (nonatomic, strong) Stop *stop;
 @property (nonatomic, strong) Route *route;
 @property (readonly, assign) NSInteger stopSequence;
+@property (nonatomic, strong) NSString *tripId;
 
 @end

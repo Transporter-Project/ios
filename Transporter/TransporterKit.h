@@ -14,3 +14,4 @@ static NSString * const TPAPIBaseAddress = @"http://localhost:1447/v1";
 #import "Departure.h"
 #import "Route.h"
 #import "Stop.h"
+#import "TripCallingPoint.h"

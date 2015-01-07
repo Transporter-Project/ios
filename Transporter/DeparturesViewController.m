@@ -8,7 +8,7 @@
 
 #import "DeparturesViewController.h"
 #import "TransporterKit.h"
-#import "MapTableRow.h"
+#import "DepartureDetailViewController.h"
 
 @interface DeparturesViewController ()
 
@@ -20,7 +20,6 @@
 {
     if (self = [super initWithStyle:EKTableViewStylePlain]) {
         
-        self.title = @"Bournemouth";
         _departureController = [[AppController sharedController] departureController];
     }
     
@@ -36,11 +35,21 @@
     
     [self.departureController departuresNearCoordinate:CLLocationCoordinate2DMake(50.719752, -1.887052) completion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
         
-        EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:departures footerTitle:nil selection:nil];
-        [self addSection:departureSection];
+        EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:departures footerTitle:nil selection:^(EKTableRowSelection *selection) {
+            
+            Departure *departure = (Departure *)selection.object;
+            [self handleDeparture:departure];
+        }];
         
+        [self addSection:departureSection];
         [self.tableView reloadData];
     }];
+}
+
+- (void)handleDeparture:(Departure *)departure
+{    
+    DepartureDetailViewController *viewController = [[DepartureDetailViewController alloc] initWithDeparture:departure];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end

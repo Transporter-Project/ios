@@ -14,6 +14,6 @@
 
 @property (nonatomic, strong) Departure *departure;
 @property (nonatomic, strong) UILabel *departureLabel;
-
+@property (nonatomic, strong) UIProgressView *departureProgressView;
 
 @end

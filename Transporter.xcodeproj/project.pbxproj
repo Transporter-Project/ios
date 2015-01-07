@@ -15,6 +15,8 @@
 		1363CA801A5C985B008FC7AA /* HighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA7F1A5C985B008FC7AA /* HighlightView.m */; };
 		1363CA831A5C9B52008FC7AA /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1363CA811A5C9B52008FC7AA /* OpenSans-Regular.ttf */; };
 		1363CA841A5C9B52008FC7AA /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1363CA821A5C9B52008FC7AA /* OpenSans-Semibold.ttf */; };
+		1363CA871A5D99D5008FC7AA /* DepartureDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */; };
+		1363CA8A1A5DD628008FC7AA /* TripCallingPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA891A5DD628008FC7AA /* TripCallingPoint.m */; };
 		13BAB2741A5ACD2E0043FA14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2731A5ACD2E0043FA14 /* main.m */; };
 		13BAB2771A5ACD2E0043FA14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2761A5ACD2E0043FA14 /* AppDelegate.m */; };
 		13BAB27F1A5ACD2E0043FA14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BAB27E1A5ACD2E0043FA14 /* Images.xcassets */; };
@@ -57,6 +59,10 @@
 		1363CA7F1A5C985B008FC7AA /* HighlightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighlightView.m; sourceTree = "<group>"; };
 		1363CA811A5C9B52008FC7AA /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		1363CA821A5C9B52008FC7AA /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		1363CA851A5D99D5008FC7AA /* DepartureDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartureDetailViewController.h; sourceTree = "<group>"; };
+		1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartureDetailViewController.m; sourceTree = "<group>"; };
+		1363CA881A5DD628008FC7AA /* TripCallingPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripCallingPoint.h; sourceTree = "<group>"; };
+		1363CA891A5DD628008FC7AA /* TripCallingPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripCallingPoint.m; sourceTree = "<group>"; };
 		13BAB26E1A5ACD2E0043FA14 /* Transporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BAB2721A5ACD2E0043FA14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13BAB2731A5ACD2E0043FA14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -165,8 +171,8 @@
 				1363CA731A5AF208008FC7AA /* Views */,
 				13BAB2AC1A5AD16E0043FA14 /* Controllers */,
 				13BAB29B1A5ACF260043FA14 /* Models */,
-				1363CA7A1A5C8BDE008FC7AA /* Views */,
 				13BAB29A1A5ACDC10043FA14 /* View Controllers */,
+				1363CA7A1A5C8BDE008FC7AA /* Views */,
 				13BAB27E1A5ACD2E0043FA14 /* Images.xcassets */,
 				13BAB2801A5ACD2E0043FA14 /* LaunchScreen.xib */,
 				13BAB2711A5ACD2E0043FA14 /* Supporting Files */,
@@ -210,6 +216,8 @@
 			children = (
 				13BAB2971A5ACDBD0043FA14 /* DeparturesViewController.h */,
 				13BAB2981A5ACDBD0043FA14 /* DeparturesViewController.m */,
+				1363CA851A5D99D5008FC7AA /* DepartureDetailViewController.h */,
+				1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -225,6 +233,8 @@
 				13BAB2A71A5AD0440043FA14 /* Route.m */,
 				13BAB29F1A5ACF430043FA14 /* Stop.h */,
 				13BAB2A01A5ACF430043FA14 /* Stop.m */,
+				1363CA881A5DD628008FC7AA /* TripCallingPoint.h */,
+				1363CA891A5DD628008FC7AA /* TripCallingPoint.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -395,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1363CA8A1A5DD628008FC7AA /* TripCallingPoint.m in Sources */,
 				13BAB2AF1A5AD17C0043FA14 /* DepartureController.m in Sources */,
 				1363CA761A5AF21F008FC7AA /* MapTableViewCell.m in Sources */,
 				1363CA7D1A5C8CA6008FC7AA /* DepartureTableViewCell.m in Sources */,
@@ -404,6 +415,7 @@
 				13BAB2B21A5AD1A10043FA14 /* AppController.m in Sources */,
 				1363CA801A5C985B008FC7AA /* HighlightView.m in Sources */,
 				1363CA711A5AEEA6008FC7AA /* NSDate+TimeAgo.m in Sources */,
+				1363CA871A5D99D5008FC7AA /* DepartureDetailViewController.m in Sources */,
 				13BAB2A81A5AD0440043FA14 /* Route.m in Sources */,
 				13BAB2AB1A5AD0A40043FA14 /* Model.m in Sources */,
 				13BAB29E1A5ACF350043FA14 /* Departure.m in Sources */,

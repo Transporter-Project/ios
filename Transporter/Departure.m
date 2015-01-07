@@ -19,6 +19,7 @@
         _departureDate = [NSDate dateWithTimeIntervalSince1970:[dictionary[@"departure"] integerValue]];
         _arrivalDate = [NSDate dateWithTimeIntervalSince1970:[dictionary[@"arrival"] integerValue]];
         _stopSequence = [dictionary[@"stop_sequence"] integerValue];
+        _tripId = dictionary[@"trip_id"];
     }
     
     return self;

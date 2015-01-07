@@ -57,4 +57,27 @@
     }];
 }
 
+- (void)tripDetailsForDeparture:(Departure *)departure completion:(TripDetailsCompletion)completion
+{
+    [self.requestManager GET:[NSString stringWithFormat:@"trips/%@", departure.tripId] parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        
+        NSArray *stops = [Model modelsWithDictionaries:responseObject[@"stops"] rootClass:[Stop class]];
+        NSArray *times = [Model modelsWithDictionaries:responseObject[@"times"] rootClass:[TripCallingPoint class] custom:^(TripCallingPoint *tripCallingPoint, NSDictionary *dictionary) {
+            
+            [stops enumerateObjectsUsingBlock:^(Stop *stop, NSUInteger idx, BOOL *s) {
+                
+                if ([stop.identifier isEqualToString:dictionary[@"stop_id"]]) {
+                    tripCallingPoint.stop = stop;
+                }
+            }];
+        }];
+        
+        completion(times, stops, nil);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        
+    }];
+}
+
 @end

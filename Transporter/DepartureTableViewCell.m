@@ -37,7 +37,13 @@
         self.departureLabel.font = [UIFont fontWithName:@"OpenSans" size:24];
         [self.contentView addSubview:self.departureLabel];
         
-        NSLog(@"OPEN: %@", [UIFont fontNamesForFamilyName:@"Open Sans"]);
+        /*
+        self.departureProgressView = [UIProgressView new];
+        self.departureProgressView.progress = 0.5;
+        self.departureProgressView.progressTintColor = [UIColor whiteColor];
+        self.departureProgressView.trackTintColor = [[UIColor blackColor] colorWithAlphaComponent:0.1];
+        [self.contentView addSubview:self.departureProgressView];
+         */
     }
     
     return self;
@@ -49,10 +55,19 @@
     
     _departure = departure;
     
+    // Set labels
     self.textLabel.text = self.departure.route.shortName;
     self.detailTextLabel.text = self.departure.headsign;
     self.backgroundColor = self.departure.route.color;
     self.departureLabel.text = [self.departure.departureDate timeAgoSimple];
+    
+    /*
+    // Set progress bar
+    NSTimeInterval hoursTime = [[NSDate date] timeIntervalSince1970] + 3600;
+    NSTimeInterval timeDelta = hoursTime - [departure.departureDate timeIntervalSince1970];
+
+    self.departureProgressView.progress =  1.0 - (timeDelta / 3600);
+    */
     
     [self didChangeValueForKey:@"departure"];
 }
@@ -63,6 +78,7 @@
     
     self.highlightView.frame = self.contentView.bounds;
     self.departureLabel.frame = CGRectMake(self.contentView.bounds.size.width - 60, 0, 60, self.contentView.bounds.size.height);
+    self.departureProgressView.frame = CGRectMake(self.contentView.bounds.size.width - 60, 70, 40, 2);
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
