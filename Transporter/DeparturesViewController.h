@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "LightningTable.h"
+#import "NavigationBarController.h"
 
 @class DepartureController;
 
-@interface DeparturesViewController : EKTableViewController
+@interface DeparturesViewController : EKTableViewController <NavigationBarControllerDelegate>
 
 @property (readonly, strong) DepartureController *departureController;
+@property (nonatomic, strong) UISearchController *searchController;
 
 @end

@@ -9,6 +9,7 @@
 #import "DeparturesViewController.h"
 #import "TransporterKit.h"
 #import "DepartureDetailViewController.h"
+#import "LocationSearchViewController.h"
 
 @interface DeparturesViewController ()
 
@@ -30,10 +31,17 @@
 {
     [super viewDidLoad];
     
+    LocationSearchViewController *searchViewController = [LocationSearchViewController new];
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchViewController];
+    self.searchController.searchBar.searchBarStyle = UISearchBarStyleDefault;
+    self.navigationItem.titleView = self.searchController.searchBar;
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.departureController departuresNearCoordinate:CLLocationCoordinate2DMake(50.719752, -1.887052) completion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
+        
+        self.view.backgroundColor = [[[departures firstObject] route] color];
         
         EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:departures footerTitle:nil selection:^(EKTableRowSelection *selection) {
             
@@ -50,6 +58,11 @@
 {    
     DepartureDetailViewController *viewController = [[DepartureDetailViewController alloc] initWithDeparture:departure];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (UIColor *)navigationBarColor
+{
+    return [UIColor clearColor];
 }
 
 @end

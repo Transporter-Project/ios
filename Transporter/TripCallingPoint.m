@@ -29,6 +29,11 @@
 
 - (NSString *)title
 {
+    return self.stop.title;
+}
+
+- (NSString *)subtitle
+{
     return self.arrivalDate.description;
 }
 

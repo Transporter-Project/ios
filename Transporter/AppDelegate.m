@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DeparturesViewController.h"
+#import "NavigationBarController.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +21,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[DeparturesViewController new]];
+    UINavigationController *navigationController = [[NavigationBarController alloc] initWithRootViewController:[DeparturesViewController new]];
     
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];

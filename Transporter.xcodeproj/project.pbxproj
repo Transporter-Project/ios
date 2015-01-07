@@ -17,6 +17,8 @@
 		1363CA841A5C9B52008FC7AA /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1363CA821A5C9B52008FC7AA /* OpenSans-Semibold.ttf */; };
 		1363CA871A5D99D5008FC7AA /* DepartureDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */; };
 		1363CA8A1A5DD628008FC7AA /* TripCallingPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA891A5DD628008FC7AA /* TripCallingPoint.m */; };
+		1363CA8D1A5DE1D9008FC7AA /* LocationSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */; };
+		1363CA901A5DE3D7008FC7AA /* NavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */; };
 		13BAB2741A5ACD2E0043FA14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2731A5ACD2E0043FA14 /* main.m */; };
 		13BAB2771A5ACD2E0043FA14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2761A5ACD2E0043FA14 /* AppDelegate.m */; };
 		13BAB27F1A5ACD2E0043FA14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BAB27E1A5ACD2E0043FA14 /* Images.xcassets */; };
@@ -63,6 +65,10 @@
 		1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartureDetailViewController.m; sourceTree = "<group>"; };
 		1363CA881A5DD628008FC7AA /* TripCallingPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripCallingPoint.h; sourceTree = "<group>"; };
 		1363CA891A5DD628008FC7AA /* TripCallingPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripCallingPoint.m; sourceTree = "<group>"; };
+		1363CA8B1A5DE1D9008FC7AA /* LocationSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSearchViewController.h; sourceTree = "<group>"; };
+		1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSearchViewController.m; sourceTree = "<group>"; };
+		1363CA8E1A5DE3D7008FC7AA /* NavigationBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBarController.h; sourceTree = "<group>"; };
+		1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarController.m; sourceTree = "<group>"; };
 		13BAB26E1A5ACD2E0043FA14 /* Transporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BAB2721A5ACD2E0043FA14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13BAB2731A5ACD2E0043FA14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -214,8 +220,12 @@
 		13BAB29A1A5ACDC10043FA14 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1363CA8E1A5DE3D7008FC7AA /* NavigationBarController.h */,
+				1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */,
 				13BAB2971A5ACDBD0043FA14 /* DeparturesViewController.h */,
 				13BAB2981A5ACDBD0043FA14 /* DeparturesViewController.m */,
+				1363CA8B1A5DE1D9008FC7AA /* LocationSearchViewController.h */,
+				1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */,
 				1363CA851A5D99D5008FC7AA /* DepartureDetailViewController.h */,
 				1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */,
 			);
@@ -405,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1363CA8D1A5DE1D9008FC7AA /* LocationSearchViewController.m in Sources */,
 				1363CA8A1A5DD628008FC7AA /* TripCallingPoint.m in Sources */,
 				13BAB2AF1A5AD17C0043FA14 /* DepartureController.m in Sources */,
 				1363CA761A5AF21F008FC7AA /* MapTableViewCell.m in Sources */,
@@ -412,6 +423,7 @@
 				13BAB2A11A5ACF430043FA14 /* Stop.m in Sources */,
 				13BAB2991A5ACDBD0043FA14 /* DeparturesViewController.m in Sources */,
 				13BAB2771A5ACD2E0043FA14 /* AppDelegate.m in Sources */,
+				1363CA901A5DE3D7008FC7AA /* NavigationBarController.m in Sources */,
 				13BAB2B21A5AD1A10043FA14 /* AppController.m in Sources */,
 				1363CA801A5C985B008FC7AA /* HighlightView.m in Sources */,
 				1363CA711A5AEEA6008FC7AA /* NSDate+TimeAgo.m in Sources */,
