@@ -34,6 +34,7 @@
 		13BAB2AF1A5AD17C0043FA14 /* DepartureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2AE1A5AD17C0043FA14 /* DepartureController.m */; };
 		13BAB2B21A5AD1A10043FA14 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2B11A5AD1A10043FA14 /* AppController.m */; };
 		13BAB2C01A5AE7530043FA14 /* libLightningTable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BAB2BF1A5AE7530043FA14 /* libLightningTable.a */; };
+		13CF587B1A5ECF840060E625 /* RouteDeparturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF587A1A5ECF840060E625 /* RouteDeparturesViewController.m */; };
 		1900DFD6711BCA7B4F77F536 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5C251991BA43C6EB3D88C1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,8 @@
 		13BAB2B11A5AD1A10043FA14 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		13BAB2B31A5AD2070043FA14 /* TransporterKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransporterKit.h; sourceTree = "<group>"; };
 		13BAB2BF1A5AE7530043FA14 /* libLightningTable.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLightningTable.a; path = "LightningTable/build/Debug-iphoneos/libLightningTable.a"; sourceTree = "<group>"; };
+		13CF58791A5ECF840060E625 /* RouteDeparturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteDeparturesViewController.h; sourceTree = "<group>"; };
+		13CF587A1A5ECF840060E625 /* RouteDeparturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteDeparturesViewController.m; sourceTree = "<group>"; };
 		5D5C251991BA43C6EB3D88C1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC16BC63B86762AA9B2A98B8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D7DE506647A4DFFD8770D211 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -224,10 +227,12 @@
 				1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */,
 				13BAB2971A5ACDBD0043FA14 /* DeparturesViewController.h */,
 				13BAB2981A5ACDBD0043FA14 /* DeparturesViewController.m */,
-				1363CA8B1A5DE1D9008FC7AA /* LocationSearchViewController.h */,
-				1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */,
 				1363CA851A5D99D5008FC7AA /* DepartureDetailViewController.h */,
 				1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */,
+				13CF58791A5ECF840060E625 /* RouteDeparturesViewController.h */,
+				13CF587A1A5ECF840060E625 /* RouteDeparturesViewController.m */,
+				1363CA8B1A5DE1D9008FC7AA /* LocationSearchViewController.h */,
+				1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 				13BAB2A11A5ACF430043FA14 /* Stop.m in Sources */,
 				13BAB2991A5ACDBD0043FA14 /* DeparturesViewController.m in Sources */,
 				13BAB2771A5ACD2E0043FA14 /* AppDelegate.m in Sources */,
+				13CF587B1A5ECF840060E625 /* RouteDeparturesViewController.m in Sources */,
 				1363CA901A5DE3D7008FC7AA /* NavigationBarController.m in Sources */,
 				13BAB2B21A5AD1A10043FA14 /* AppController.m in Sources */,
 				1363CA801A5C985B008FC7AA /* HighlightView.m in Sources */,

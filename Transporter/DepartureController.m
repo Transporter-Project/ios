@@ -27,6 +27,23 @@
     query[@"lat"] = @(coordinate.latitude);
     query[@"lon"] = @(coordinate.longitude);
     
+    [self departuresWithOptions:query completion:completion];
+}
+
+- (void)departuresForStop:(Stop *)stop withRoute:(Route *)route completion:(DepartureCompletion)completion
+{
+    NSMutableDictionary *query = [NSMutableDictionary new];
+    query[@"stop_id"] = stop.identifier;
+
+    if (route) {
+        query[@"route_id"] = route.identifier;
+    }
+    
+    [self departuresWithOptions:query completion:completion];
+}
+
+- (void)departuresWithOptions:(NSDictionary *)query completion:(DepartureCompletion)completion
+{
     [self.requestManager GET:@"departures" parameters:query success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         
         NSArray *stops = [Model modelsWithDictionaries:responseObject[@"stops"] rootClass:[Stop class]];
@@ -40,7 +57,7 @@
                     departure.stop = stop;
                 }
             }];
-                
+            
             [routes enumerateObjectsUsingBlock:^(Route *route, NSUInteger idx, BOOL *s) {
                 
                 if ([route.identifier isEqualToString:dictionary[@"route_id"]]) {
@@ -55,6 +72,7 @@
         
         completion(nil, nil, nil, error);
     }];
+
 }
 
 - (void)tripDetailsForDeparture:(Departure *)departure completion:(TripDetailsCompletion)completion

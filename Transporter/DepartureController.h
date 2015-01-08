@@ -11,6 +11,8 @@
 #import <AFNetworking/AFNetworking.h>
 
 @class Departure;
+@class Route;
+@class Stop;
 
 @interface DepartureController : NSObject
 
@@ -21,5 +23,6 @@ typedef void (^TripDetailsCompletion)(NSArray *callingPoints, NSArray *stops, NS
 
 - (void)departuresNearCoordinate:(CLLocationCoordinate2D)coordinate completion:(DepartureCompletion)completion;
 - (void)tripDetailsForDeparture:(Departure *)departure completion:(TripDetailsCompletion)completion;
+- (void)departuresForStop:(Stop *)stop withRoute:(Route *)route completion:(DepartureCompletion)completion;
 
 @end

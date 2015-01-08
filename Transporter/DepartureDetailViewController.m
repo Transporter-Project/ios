@@ -8,6 +8,7 @@
 
 #import "DepartureDetailViewController.h"
 #import "TransporterKit.h"
+#import "RouteDeparturesViewController.h"
 
 @interface DepartureDetailViewController ()
 
@@ -23,6 +24,7 @@
         _departureController = [[AppController sharedController] departureController];
 
         self.title = depature.route.shortName;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Other Times" style:UIBarButtonItemStylePlain target:self action:@selector(handleOtherTimes:)];
     }
     
     return self;
@@ -56,12 +58,27 @@
     self.stopLabel.textColor = [UIColor whiteColor];
     [self.detailBarView addSubview:self.stopLabel];
 
-    
     [self.departureController tripDetailsForDeparture:self.departure completion:^(NSArray *callingPoints, NSArray *stops, NSError *error) {
         
         [self.mapView addAnnotations:callingPoints];
         [self drawRouteWithCallingPoints:callingPoints];
     }];
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    self.mapView.frame = self.view.bounds;
+    self.detailBarView.frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height + 20, self.view.bounds.size.width, 50);
+    self.headsignLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width, 25);
+    self.stopLabel.frame = CGRectMake(0, 20, self.view.bounds.size.width, 25);
+}
+
+- (void)handleOtherTimes:(id)sender
+{
+    RouteDeparturesViewController *viewController = [[RouteDeparturesViewController alloc] initWithStop:self.departure.stop route:self.departure.route];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)drawRouteWithCallingPoints:(NSArray *)callingPoints
@@ -84,16 +101,6 @@
     
     MKMapRect mapRect = [self.mapView mapRectThatFits:centerLine.boundingMapRect];
     [self.mapView setVisibleMapRect:mapRect edgePadding:UIEdgeInsetsMake(20, 20, 20, 20) animated:NO];
-}
-
-- (void)viewWillLayoutSubviews
-{
-    [super viewWillLayoutSubviews];
-    
-    self.mapView.frame = self.view.bounds;
-    self.detailBarView.frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height + 20, self.view.bounds.size.width, 50);
-    self.headsignLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width, 25);
-    self.stopLabel.frame = CGRectMake(0, 20, self.view.bounds.size.width, 25);
 }
 
 #pragma mark - Map View delegate
@@ -139,6 +146,8 @@
     
     return annotationView;
 }
+
+#pragma mark - Navigation bar delegate
 
 - (UIColor *)navigationBarColor
 {
