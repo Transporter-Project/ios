@@ -8,6 +8,7 @@
 
 #import "RouteDeparturesViewController.h"
 #import "TransporterKit.h"
+#import "DepartureTimelinePoint.h"
 
 @interface RouteDeparturesViewController ()
 
@@ -33,7 +34,17 @@
 {
     [self.departureController departuresForStop:self.stop withRoute:self.route completion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
         
-        EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:departures footerTitle:nil selection:nil];
+        NSMutableArray *departureTimelinePoints = [NSMutableArray array];
+        
+        [departures enumerateObjectsUsingBlock:^(Departure *departure, NSUInteger idx, BOOL *stop) {
+            
+            DepartureTimelinePoint *point = [DepartureTimelinePoint new];
+            point.departureDate = departure.departureDate;
+            
+            [departureTimelinePoints addObject:point];
+        }];
+        
+        EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:departureTimelinePoints footerTitle:nil selection:nil];
         [self addSection:departureSection];
         [self.tableView reloadData];
     }];
