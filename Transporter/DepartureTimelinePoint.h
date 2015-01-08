@@ -12,5 +12,7 @@
 @interface DepartureTimelinePoint : NSObject <EKTableRowProtocol>
 
 @property (nonatomic, strong) NSDate *departureDate;
+@property (nonatomic, assign) NSInteger timeDelta;
+@property (nonatomic, assign) NSInteger lowestDelta;
 
 @end

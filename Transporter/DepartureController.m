@@ -72,7 +72,6 @@
         
         completion(nil, nil, nil, error);
     }];
-
 }
 
 - (void)tripDetailsForDeparture:(Departure *)departure completion:(TripDetailsCompletion)completion

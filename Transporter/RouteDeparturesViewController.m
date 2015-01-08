@@ -32,19 +32,43 @@
 
 - (void)viewDidLoad
 {
+    self.view.backgroundColor = self.route.color;
+    
     [self.departureController departuresForStop:self.stop withRoute:self.route completion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
         
-        NSMutableArray *departureTimelinePoints = [NSMutableArray array];
+        NSMutableArray *points = [NSMutableArray arrayWithCapacity:departures.count];
+        NSMutableArray *pointDeltas = [NSMutableArray arrayWithCapacity:departures.count];
+        __block NSInteger lowestPointDelta = MAXFLOAT;
+        
+        __block DepartureTimelinePoint *previousPoint = nil;
         
         [departures enumerateObjectsUsingBlock:^(Departure *departure, NSUInteger idx, BOOL *stop) {
             
             DepartureTimelinePoint *point = [DepartureTimelinePoint new];
             point.departureDate = departure.departureDate;
             
-            [departureTimelinePoints addObject:point];
+            if (previousPoint) {
+                
+                NSInteger pointDelta = [point.departureDate timeIntervalSinceDate:previousPoint.departureDate];
+                
+                if (pointDelta < lowestPointDelta) {
+                    lowestPointDelta = pointDelta;
+                }
+                
+                point.timeDelta = pointDelta;
+                [pointDeltas addObject:@(pointDelta)];
+            }
+            
+            [points addObject:point];
+            previousPoint = point;
         }];
         
-        EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:departureTimelinePoints footerTitle:nil selection:nil];
+        [points enumerateObjectsUsingBlock:^(DepartureTimelinePoint *point, NSUInteger idx, BOOL *stop) {
+            
+            point.lowestDelta = lowestPointDelta;
+        }];
+        
+        EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:points footerTitle:nil selection:nil];
         [self addSection:departureSection];
         [self.tableView reloadData];
     }];

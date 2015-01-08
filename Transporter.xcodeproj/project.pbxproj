@@ -20,6 +20,7 @@
 		1363CA8D1A5DE1D9008FC7AA /* LocationSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */; };
 		1363CA901A5DE3D7008FC7AA /* NavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */; };
 		139266031A5EE1D900AF8E53 /* DepartureTimelinePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 139266021A5EE1D900AF8E53 /* DepartureTimelinePoint.m */; };
+		139266061A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 139266051A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m */; };
 		13BAB2741A5ACD2E0043FA14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2731A5ACD2E0043FA14 /* main.m */; };
 		13BAB2771A5ACD2E0043FA14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2761A5ACD2E0043FA14 /* AppDelegate.m */; };
 		13BAB27F1A5ACD2E0043FA14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BAB27E1A5ACD2E0043FA14 /* Images.xcassets */; };
@@ -73,6 +74,8 @@
 		1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarController.m; sourceTree = "<group>"; };
 		139266011A5EE1D900AF8E53 /* DepartureTimelinePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartureTimelinePoint.h; sourceTree = "<group>"; };
 		139266021A5EE1D900AF8E53 /* DepartureTimelinePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartureTimelinePoint.m; sourceTree = "<group>"; };
+		139266041A5EE36900AF8E53 /* DepartureTimelineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartureTimelineTableViewCell.h; sourceTree = "<group>"; };
+		139266051A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartureTimelineTableViewCell.m; sourceTree = "<group>"; };
 		13BAB26E1A5ACD2E0043FA14 /* Transporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BAB2721A5ACD2E0043FA14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13BAB2731A5ACD2E0043FA14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				1363CA7C1A5C8CA6008FC7AA /* DepartureTableViewCell.m */,
 				1363CA7E1A5C985B008FC7AA /* HighlightView.h */,
 				1363CA7F1A5C985B008FC7AA /* HighlightView.m */,
+				139266041A5EE36900AF8E53 /* DepartureTimelineTableViewCell.h */,
+				139266051A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -444,6 +449,7 @@
 				13BAB2AB1A5AD0A40043FA14 /* Model.m in Sources */,
 				13BAB29E1A5ACF350043FA14 /* Departure.m in Sources */,
 				1363CA791A5AF298008FC7AA /* MapTableRow.m in Sources */,
+				139266061A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m in Sources */,
 				13BAB2741A5ACD2E0043FA14 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

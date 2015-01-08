@@ -47,7 +47,6 @@
         self.departureProgressView.progressTintColor = [UIColor whiteColor];
         self.departureProgressView.trackTintColor = [[UIColor blackColor] colorWithAlphaComponent:0.1];
         [self.contentView addSubview:self.departureProgressView];
-       
     }
     
     return self;

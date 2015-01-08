@@ -7,12 +7,29 @@
 //
 
 #import "DepartureTimelinePoint.h"
+#import "DepartureTimelineTableViewCell.h"
 
 @implementation DepartureTimelinePoint
 
-- (NSString *)rowTitle
+- (void)configureRowCell:(DepartureTimelineTableViewCell *)cell
 {
-    return self.departureDate.description;
+    cell.point = self;
+}
+
+- (Class)rowCellClass
+{
+    return [DepartureTimelineTableViewCell class];
+}
+
+- (CGFloat)rowHeightForConstraintSize:(CGSize)contraintSize
+{
+    NSInteger height = (self.timeDelta / self.lowestDelta) * 44;
+    
+    if (height < 44) {
+        height = 44;
+    }
+    
+    return height;
 }
 
 @end
