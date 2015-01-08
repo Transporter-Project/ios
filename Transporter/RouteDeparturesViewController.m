@@ -33,6 +33,7 @@
 - (void)viewDidLoad
 {
     self.view.backgroundColor = self.route.color;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.departureController departuresForStop:self.stop withRoute:self.route completion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
         
@@ -65,7 +66,9 @@
         
         [points enumerateObjectsUsingBlock:^(DepartureTimelinePoint *point, NSUInteger idx, BOOL *stop) {
             
+            point.color = self.route.color;
             point.lowestDelta = lowestPointDelta;
+            point.odd = idx % 2;
         }];
         
         EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:points footerTitle:nil selection:nil];

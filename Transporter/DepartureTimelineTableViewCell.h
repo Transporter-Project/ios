@@ -14,5 +14,8 @@
 
 @property (nonatomic, strong) DepartureTimelinePoint *point;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) UIView *centralLine;
+@property (nonatomic, strong) UIView *centralCircle;
+@property (nonatomic, strong) UIColor *color;
 
 @end

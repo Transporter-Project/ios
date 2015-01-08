@@ -14,5 +14,7 @@
 @property (nonatomic, strong) NSDate *departureDate;
 @property (nonatomic, assign) NSInteger timeDelta;
 @property (nonatomic, assign) NSInteger lowestDelta;
+@property (nonatomic, assign) BOOL odd;
+@property (nonatomic, strong) UIColor *color;
 
 @end
