@@ -23,7 +23,7 @@
 
 - (UIColor *)color
 {
-    NSArray *colours = @[[UIColor colorWithRed:0.29 green:0.69 blue:0.62 alpha:1], [UIColor colorWithRed:0.87 green:0.29 blue:0.3 alpha:1], [UIColor colorWithRed:0.88 green:0.48 blue:0.27 alpha:1], [UIColor colorWithRed:0.93 green:0.78 blue:0.34 alpha:1]];
+    NSArray *colours = @[[UIColor colorWithRed:0.18 green:0.6 blue:0.65 alpha:1], [UIColor colorWithRed:0.67 green:0.82 blue:0.4 alpha:1], [UIColor colorWithRed:0.97 green:0.78 blue:0.26 alpha:1], [UIColor colorWithRed:0.94 green:0.35 blue:0.31 alpha:1]];
     
     return colours[self.shortName.hash % colours.count];
 }

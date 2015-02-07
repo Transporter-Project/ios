@@ -29,6 +29,10 @@
         height = 44;
     }
     
+    if (height > contraintSize.height) {
+        height = contraintSize.height - (contraintSize.height / 2);
+    }
+    
     return height;
 }
 

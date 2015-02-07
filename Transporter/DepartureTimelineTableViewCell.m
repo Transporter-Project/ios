@@ -68,4 +68,9 @@
     self.centralCircle.layer.cornerRadius = self.centralCircle.frame.size.height / 2;
 }
 
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+    
+}
+
 @end

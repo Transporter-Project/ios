@@ -71,7 +71,6 @@
 
     self.departureProgressView.progress =  1.0 - (timeDelta / 3600);
  
-    
     [self didChangeValueForKey:@"departure"];
 }
 
