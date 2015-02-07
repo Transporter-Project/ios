@@ -16,9 +16,17 @@
     if (self = [super init]) {
         
         self.requestManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:TPAPIBaseAddress]];
+        
+        _locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
     }
     
     return self;
+}
+
+- (void)departuresNearCurrentLocationWithCompletion:(DepartureCompletion)completion
+{
+    [self departuresNearCoordinate:CLLocationCoordinate2DMake(50.719687, -1.885315) completion:completion];
 }
 
 - (void)departuresNearCoordinate:(CLLocationCoordinate2D)coordinate completion:(DepartureCompletion)completion
@@ -95,6 +103,13 @@
         
         
     }];
+}
+
+#pragma mark - Location
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    
 }
 
 @end

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>994FB1CC-83C4-4F78-B4FF-8B9BB8E3AFCB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Transporter</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EF4B16933269571D8552274BFADECD73DE44ADE6</key>
+		<string>bitbucket.org:phillipcaudell/transporter-ios.git</string>
+		<key>F563DB6D6AE737BDF4F089CB0C2E84164C4784A9</key>
+		<string>bitbucket.org:phillipcaudell/lightning-table.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Transporter.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EF4B16933269571D8552274BFADECD73DE44ADE6</key>
+		<string>..</string>
+		<key>F563DB6D6AE737BDF4F089CB0C2E84164C4784A9</key>
+		<string>..LightningTable/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>bitbucket.org:phillipcaudell/transporter-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EF4B16933269571D8552274BFADECD73DE44ADE6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F563DB6D6AE737BDF4F089CB0C2E84164C4784A9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LightningTable</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EF4B16933269571D8552274BFADECD73DE44ADE6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Transporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>

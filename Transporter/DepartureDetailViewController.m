@@ -38,6 +38,7 @@
     
     _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
     [self.view addSubview:self.mapView];
     
     _detailBarView = [UIView new];

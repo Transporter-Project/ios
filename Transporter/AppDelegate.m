@@ -20,11 +20,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.tintColor = [UIColor redColor];
     
     UINavigationController *navigationController = [[NavigationBarController alloc] initWithRootViewController:[DeparturesViewController new]];
     
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    
+
     
     return YES;
 }
