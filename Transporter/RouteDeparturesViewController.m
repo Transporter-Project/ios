@@ -10,6 +10,7 @@
 #import "TransporterKit.h"
 #import "DepartureTimelinePoint.h"
 #import "PCAngularActivityIndicatorView.h"
+#import "DepartureBarView.h"
 
 @interface RouteDeparturesViewController ()
 
@@ -35,6 +36,11 @@
 
 - (void)viewDidLoad
 {
+    _departureBarView = [DepartureBarView new];
+    self.departureBarView.headsignLabel.text = self.route.longName;
+    self.departureBarView.stopLabel.text = self.stop.title;
+    self.departureBarView.backgroundColor = self.route.color;
+    
     _activityIndicatorView = [[PCAngularActivityIndicatorView alloc] initWithActivityIndicatorStyle:PCAngularActivityIndicatorViewStyleLarge];
     self.activityIndicatorView.color = [UIColor whiteColor];
     [self.view addSubview:self.activityIndicatorView];
@@ -49,7 +55,20 @@
 {
     [super viewWillLayoutSubviews];
     
-    self.activityIndicatorView.center = self.view.window.center;
+    CGRect activityFrame = self.activityIndicatorView.frame;
+    activityFrame.origin.x = self.view.bounds.size.width / 2 - activityFrame.size.width / 2;
+    activityFrame.origin.y = self.view.bounds.size.height / 2 - activityFrame.size.height;
+    self.activityIndicatorView.frame = activityFrame;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return self.departureBarView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50;
 }
 
 - (void)reload

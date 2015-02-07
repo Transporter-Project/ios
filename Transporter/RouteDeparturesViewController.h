@@ -11,12 +11,14 @@
 @class Stop;
 @class Route;
 @class DepartureController;
+@class DepartureBarView;
 
 @interface RouteDeparturesViewController : EKTableViewController
 
 @property (readonly, strong) Stop *stop;
 @property (readonly, strong) Route *route;
 @property (readonly, strong) DepartureController *departureController;
+@property (readonly, strong) DepartureBarView *departureBarView;
 
 - (id)initWithStop:(Stop *)stop route:(Route *)route;
 

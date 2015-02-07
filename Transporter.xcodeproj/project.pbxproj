@@ -55,6 +55,7 @@
 		13D3A86B1A86299B005E5CE4 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8621A86299B005E5CE4 /* UIRefreshControl+AFNetworking.m */; };
 		13D3A86C1A86299B005E5CE4 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8641A86299B005E5CE4 /* UIWebView+AFNetworking.m */; };
 		13D3A8711A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8701A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m */; };
+		13D3A8741A8667DB005E5CE4 /* DepartureBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8731A8667DB005E5CE4 /* DepartureBarView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +163,8 @@
 		13D3A86D1A862F94005E5CE4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		13D3A86F1A8655A9005E5CE4 /* PCAngularActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAngularActivityIndicatorView.h; sourceTree = "<group>"; };
 		13D3A8701A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAngularActivityIndicatorView.m; sourceTree = "<group>"; };
+		13D3A8721A8667DB005E5CE4 /* DepartureBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartureBarView.h; sourceTree = "<group>"; };
+		13D3A8731A8667DB005E5CE4 /* DepartureBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartureBarView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +206,8 @@
 				1363CA7C1A5C8CA6008FC7AA /* DepartureTableViewCell.m */,
 				1363CA7E1A5C985B008FC7AA /* HighlightView.h */,
 				1363CA7F1A5C985B008FC7AA /* HighlightView.m */,
+				13D3A8721A8667DB005E5CE4 /* DepartureBarView.h */,
+				13D3A8731A8667DB005E5CE4 /* DepartureBarView.m */,
 				139266041A5EE36900AF8E53 /* DepartureTimelineTableViewCell.h */,
 				139266051A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m */,
 			);
@@ -516,6 +521,7 @@
 				13BAB2AB1A5AD0A40043FA14 /* Model.m in Sources */,
 				13BAB29E1A5ACF350043FA14 /* Departure.m in Sources */,
 				13D3A84E1A862986005E5CE4 /* AFSecurityPolicy.m in Sources */,
+				13D3A8741A8667DB005E5CE4 /* DepartureBarView.m in Sources */,
 				1363CA791A5AF298008FC7AA /* MapTableRow.m in Sources */,
 				13D3A86C1A86299B005E5CE4 /* UIWebView+AFNetworking.m in Sources */,
 				13D3A8711A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m in Sources */,

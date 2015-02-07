@@ -9,6 +9,7 @@
 #import "DepartureDetailViewController.h"
 #import "TransporterKit.h"
 #import "RouteDeparturesViewController.h"
+#import "DepartureBarView.h"
 
 @interface DepartureDetailViewController ()
 
@@ -41,25 +42,11 @@
     self.mapView.showsUserLocation = YES;
     [self.view addSubview:self.mapView];
     
-    _detailBarView = [UIView new];
-    self.detailBarView.backgroundColor = self.departure.route.color;
-    [self.view addSubview:self.detailBarView];
+    _departureBarView = [DepartureBarView new];
+    self.departureBarView.departure = self.departure;
+    self.departureBarView.backgroundColor = self.departure.route.color;
+    [self.view addSubview:self.departureBarView];
     
-    _headsignLabel = [UILabel new];
-    self.headsignLabel.text = self.departure.headsign;
-    self.headsignLabel.textAlignment = NSTextAlignmentCenter;
-    self.headsignLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:14];
-    self.headsignLabel.textColor = [UIColor whiteColor];
-    [self.detailBarView addSubview:self.headsignLabel];
-    
-    _stopLabel = [UILabel new];
-    self.stopLabel.text = self.departure.stop.name;
-    self.stopLabel.textAlignment = NSTextAlignmentCenter;
-    self.stopLabel.font = [UIFont fontWithName:@"OpenSans" size:12];
-    self.stopLabel.textColor = [UIColor whiteColor];
-    [self.detailBarView addSubview:self.stopLabel];
-    
-
     [self reload];
 }
 
@@ -77,9 +64,8 @@
     [super viewWillLayoutSubviews];
     
     self.mapView.frame = self.view.bounds;
-    self.detailBarView.frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height + 20, self.view.bounds.size.width, 50);
-    self.headsignLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width, 25);
-    self.stopLabel.frame = CGRectMake(0, 20, self.view.bounds.size.width, 25);
+    self.departureBarView.frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height + 20, self.view.bounds.size.width, 50);
+
 }
 
 - (void)handleOtherTimes:(id)sender
