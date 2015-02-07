@@ -36,10 +36,14 @@
     self.searchBar.barTintColor = [UIColor blackColor];
     self.navigationItem.titleView = self.searchBar;
     
-    
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    [self reload];
+}
+
+- (void)reload
+{
     [self.departureController departuresNearCurrentLocationWithCompletion:^(NSArray *departures, NSArray *routes, NSArray *stops, CLLocation *location, NSError *error) {
         
         self.view.backgroundColor = [[[departures firstObject] route] color];

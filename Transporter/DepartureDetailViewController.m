@@ -143,13 +143,21 @@
     
     TripCallingPoint *callingPoint = annotation;
     
-    if ([callingPoint.stop.identifier isEqualToString:self.departure.stop.identifier]) {
-        annotationView.backgroundColor = self.departure.route.color;
-    } else {
-        annotationView.backgroundColor = [UIColor whiteColor];
+    if ([annotation isKindOfClass:[TripCallingPoint class]]) {
+        
+        if ([callingPoint.stop.identifier isEqualToString:self.departure.stop.identifier]) {
+            annotationView.backgroundColor = self.departure.route.color;
+        } else {
+            annotationView.backgroundColor = [UIColor whiteColor];
+        }
     }
     
     return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    [self.mapView showAnnotations:@[userLocation, self.departure.stop] animated:YES];
 }
 
 #pragma mark - Navigation bar delegate

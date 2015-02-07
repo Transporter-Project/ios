@@ -16,6 +16,22 @@
         
         _longName = dictionary[@"long_name"];
         _shortName = [dictionary[@"short_name"] lowercaseString];
+        
+        // If we have a colour from the API, use it.
+        if (![dictionary[@"color"] isEqual:[NSNull null]]) {
+            
+            NSInteger index = [dictionary[@"color"] integerValue];
+            NSArray *colours = [Route colors];
+
+            if (index <= colours.count) {
+                _color = colours[index];
+            } else {
+                _color = nil;
+            }
+
+        } else {
+            _color = nil;
+        }
     }
     
     return self;
@@ -23,9 +39,28 @@
 
 - (UIColor *)color
 {
-    NSArray *colours = @[[UIColor colorWithRed:0.18 green:0.6 blue:0.65 alpha:1], [UIColor colorWithRed:0.67 green:0.82 blue:0.4 alpha:1], [UIColor colorWithRed:0.97 green:0.78 blue:0.26 alpha:1], [UIColor colorWithRed:0.94 green:0.35 blue:0.31 alpha:1]];
-    
-    return colours[self.shortName.hash % colours.count];
+    if (!_color) {
+        
+        NSArray *colours = [Route colors];
+        UIColor *color = colours[self.shortName.hash % colours.count];
+        
+        return color;
+        
+    } else {
+        return _color;
+    }
+}
+
++ (NSArray *)colors
+{
+    NSArray *colours = @[
+                         [UIColor colorWithRed:0.87 green:0.29 blue:0.3 alpha:1],
+                         [UIColor colorWithRed:0.88 green:0.48 blue:0.27 alpha:1],
+                         [UIColor colorWithRed:0.93 green:0.78 blue:0.34 alpha:1],
+                         [UIColor colorWithRed:0.29 green:0.69 blue:0.62 alpha:1],
+                         [UIColor colorWithRed:0.2 green:0.3 blue:0.36 alpha:1],
+                         [UIColor colorWithRed:0.16 green:0.53 blue:0.76 alpha:1]];
+    return colours;
 }
 
 @end

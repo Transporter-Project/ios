@@ -13,6 +13,6 @@
 
 @property (readonly, strong) NSString *shortName;
 @property (readonly, strong) NSString *longName;
-@property (readonly, strong) UIColor *color;
+@property (nonatomic, strong) UIColor *color;
 
 @end

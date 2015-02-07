@@ -17,6 +17,5 @@
 
 @property (readonly, strong) DepartureController *departureController;
 @property (readonly, strong) UISearchBar *searchBar;
-@property (nonatomic, strong) UISearchDisplayController *searchController;
 
 @end
