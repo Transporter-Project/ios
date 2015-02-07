@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking.h"
 #import <CoreLocation/CoreLocation.h>
 
 @class Departure;
