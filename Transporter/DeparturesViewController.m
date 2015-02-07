@@ -8,6 +8,8 @@
 
 #import "DeparturesViewController.h"
 #import "TransporterKit.h"
+#import "DepartureDetailViewController.h"
+#import "LocationSearchViewController.h"
 
 @interface DeparturesViewController ()
 
@@ -19,7 +21,6 @@
 {
     if (self = [super initWithStyle:EKTableViewStylePlain]) {
         
-        self.title = @"Bournemouth";
         _departureController = [[AppController sharedController] departureController];
     }
     
@@ -30,19 +31,38 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    LocationSearchViewController *searchViewController = [LocationSearchViewController new];
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchViewController];
+    self.searchController.searchBar.searchBarStyle = UISearchBarStyleDefault;
+    self.navigationItem.titleView = self.searchController.searchBar;
     
-    [self.departureController departuresNearCoordinate:CLLocationCoordinate2DMake(50.723526, -1.905179) completion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self.departureController departuresNearCoordinate:CLLocationCoordinate2DMake(50.719752, -1.887052) completion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
+        
+        self.view.backgroundColor = [[[departures firstObject] route] color];
         
         EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:departures footerTitle:nil selection:^(EKTableRowSelection *selection) {
             
-            
+            Departure *departure = (Departure *)selection.object;
+            [self handleDeparture:departure];
         }];
         
         [self addSection:departureSection];
-        
         [self.tableView reloadData];
     }];
+}
+
+- (void)handleDeparture:(Departure *)departure
+{    
+    DepartureDetailViewController *viewController = [[DepartureDetailViewController alloc] initWithDeparture:departure];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (UIColor *)navigationBarColor
+{
+    return [UIColor clearColor];
 }
 
 @end

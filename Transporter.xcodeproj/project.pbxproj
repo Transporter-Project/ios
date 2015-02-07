@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1363CA711A5AEEA6008FC7AA /* NSDate+TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA6F1A5AEEA6008FC7AA /* NSDate+TimeAgo.m */; };
+		1363CA721A5AEEA6008FC7AA /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1363CA701A5AEEA6008FC7AA /* NSDateTimeAgo.bundle */; };
+		1363CA761A5AF21F008FC7AA /* MapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA751A5AF21F008FC7AA /* MapTableViewCell.m */; };
+		1363CA791A5AF298008FC7AA /* MapTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA781A5AF298008FC7AA /* MapTableRow.m */; };
+		1363CA7D1A5C8CA6008FC7AA /* DepartureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA7C1A5C8CA6008FC7AA /* DepartureTableViewCell.m */; };
+		1363CA801A5C985B008FC7AA /* HighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA7F1A5C985B008FC7AA /* HighlightView.m */; };
+		1363CA831A5C9B52008FC7AA /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1363CA811A5C9B52008FC7AA /* OpenSans-Regular.ttf */; };
+		1363CA841A5C9B52008FC7AA /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1363CA821A5C9B52008FC7AA /* OpenSans-Semibold.ttf */; };
+		1363CA871A5D99D5008FC7AA /* DepartureDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */; };
+		1363CA8A1A5DD628008FC7AA /* TripCallingPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA891A5DD628008FC7AA /* TripCallingPoint.m */; };
+		1363CA8D1A5DE1D9008FC7AA /* LocationSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */; };
+		1363CA901A5DE3D7008FC7AA /* NavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */; };
+		139266031A5EE1D900AF8E53 /* DepartureTimelinePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 139266021A5EE1D900AF8E53 /* DepartureTimelinePoint.m */; };
+		139266061A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 139266051A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m */; };
 		13BAB2741A5ACD2E0043FA14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2731A5ACD2E0043FA14 /* main.m */; };
 		13BAB2771A5ACD2E0043FA14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2761A5ACD2E0043FA14 /* AppDelegate.m */; };
 		13BAB27F1A5ACD2E0043FA14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BAB27E1A5ACD2E0043FA14 /* Images.xcassets */; };
@@ -22,6 +36,7 @@
 		13BAB2AF1A5AD17C0043FA14 /* DepartureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2AE1A5AD17C0043FA14 /* DepartureController.m */; };
 		13BAB2B21A5AD1A10043FA14 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2B11A5AD1A10043FA14 /* AppController.m */; };
 		13BAB2C01A5AE7530043FA14 /* libLightningTable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BAB2BF1A5AE7530043FA14 /* libLightningTable.a */; };
+		13CF587B1A5ECF840060E625 /* RouteDeparturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF587A1A5ECF840060E625 /* RouteDeparturesViewController.m */; };
 		1900DFD6711BCA7B4F77F536 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5C251991BA43C6EB3D88C1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +51,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1363CA6E1A5AEEA6008FC7AA /* NSDate+TimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeAgo.h"; sourceTree = "<group>"; };
+		1363CA6F1A5AEEA6008FC7AA /* NSDate+TimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeAgo.m"; sourceTree = "<group>"; };
+		1363CA701A5AEEA6008FC7AA /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = "<group>"; };
+		1363CA741A5AF21F008FC7AA /* MapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableViewCell.h; sourceTree = "<group>"; };
+		1363CA751A5AF21F008FC7AA /* MapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTableViewCell.m; sourceTree = "<group>"; };
+		1363CA771A5AF298008FC7AA /* MapTableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableRow.h; sourceTree = "<group>"; };
+		1363CA781A5AF298008FC7AA /* MapTableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTableRow.m; sourceTree = "<group>"; };
+		1363CA7B1A5C8CA6008FC7AA /* DepartureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartureTableViewCell.h; sourceTree = "<group>"; };
+		1363CA7C1A5C8CA6008FC7AA /* DepartureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartureTableViewCell.m; sourceTree = "<group>"; };
+		1363CA7E1A5C985B008FC7AA /* HighlightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighlightView.h; sourceTree = "<group>"; };
+		1363CA7F1A5C985B008FC7AA /* HighlightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighlightView.m; sourceTree = "<group>"; };
+		1363CA811A5C9B52008FC7AA /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		1363CA821A5C9B52008FC7AA /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		1363CA851A5D99D5008FC7AA /* DepartureDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartureDetailViewController.h; sourceTree = "<group>"; };
+		1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartureDetailViewController.m; sourceTree = "<group>"; };
+		1363CA881A5DD628008FC7AA /* TripCallingPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripCallingPoint.h; sourceTree = "<group>"; };
+		1363CA891A5DD628008FC7AA /* TripCallingPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripCallingPoint.m; sourceTree = "<group>"; };
+		1363CA8B1A5DE1D9008FC7AA /* LocationSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSearchViewController.h; sourceTree = "<group>"; };
+		1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSearchViewController.m; sourceTree = "<group>"; };
+		1363CA8E1A5DE3D7008FC7AA /* NavigationBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBarController.h; sourceTree = "<group>"; };
+		1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarController.m; sourceTree = "<group>"; };
+		139266011A5EE1D900AF8E53 /* DepartureTimelinePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartureTimelinePoint.h; sourceTree = "<group>"; };
+		139266021A5EE1D900AF8E53 /* DepartureTimelinePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartureTimelinePoint.m; sourceTree = "<group>"; };
+		139266041A5EE36900AF8E53 /* DepartureTimelineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartureTimelineTableViewCell.h; sourceTree = "<group>"; };
+		139266051A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartureTimelineTableViewCell.m; sourceTree = "<group>"; };
 		13BAB26E1A5ACD2E0043FA14 /* Transporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BAB2721A5ACD2E0043FA14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13BAB2731A5ACD2E0043FA14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -64,6 +104,8 @@
 		13BAB2B11A5AD1A10043FA14 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		13BAB2B31A5AD2070043FA14 /* TransporterKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransporterKit.h; sourceTree = "<group>"; };
 		13BAB2BF1A5AE7530043FA14 /* libLightningTable.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLightningTable.a; path = "LightningTable/build/Debug-iphoneos/libLightningTable.a"; sourceTree = "<group>"; };
+		13CF58791A5ECF840060E625 /* RouteDeparturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteDeparturesViewController.h; sourceTree = "<group>"; };
+		13CF587A1A5ECF840060E625 /* RouteDeparturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteDeparturesViewController.m; sourceTree = "<group>"; };
 		5D5C251991BA43C6EB3D88C1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC16BC63B86762AA9B2A98B8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D7DE506647A4DFFD8770D211 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +133,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1363CA731A5AF208008FC7AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1363CA741A5AF21F008FC7AA /* MapTableViewCell.h */,
+				1363CA751A5AF21F008FC7AA /* MapTableViewCell.m */,
+				1363CA771A5AF298008FC7AA /* MapTableRow.h */,
+				1363CA781A5AF298008FC7AA /* MapTableRow.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1363CA7A1A5C8BDE008FC7AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1363CA7B1A5C8CA6008FC7AA /* DepartureTableViewCell.h */,
+				1363CA7C1A5C8CA6008FC7AA /* DepartureTableViewCell.m */,
+				1363CA7E1A5C985B008FC7AA /* HighlightView.h */,
+				1363CA7F1A5C985B008FC7AA /* HighlightView.m */,
+				139266041A5EE36900AF8E53 /* DepartureTimelineTableViewCell.h */,
+				139266051A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		13BAB2651A5ACD2E0043FA14 = {
 			isa = PBXGroup;
 			children = (
@@ -119,9 +185,11 @@
 				13BAB2B31A5AD2070043FA14 /* TransporterKit.h */,
 				13BAB2751A5ACD2E0043FA14 /* AppDelegate.h */,
 				13BAB2761A5ACD2E0043FA14 /* AppDelegate.m */,
+				1363CA731A5AF208008FC7AA /* Views */,
 				13BAB2AC1A5AD16E0043FA14 /* Controllers */,
 				13BAB29B1A5ACF260043FA14 /* Models */,
 				13BAB29A1A5ACDC10043FA14 /* View Controllers */,
+				1363CA7A1A5C8BDE008FC7AA /* Views */,
 				13BAB27E1A5ACD2E0043FA14 /* Images.xcassets */,
 				13BAB2801A5ACD2E0043FA14 /* LaunchScreen.xib */,
 				13BAB2711A5ACD2E0043FA14 /* Supporting Files */,
@@ -132,6 +200,11 @@
 		13BAB2711A5ACD2E0043FA14 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1363CA811A5C9B52008FC7AA /* OpenSans-Regular.ttf */,
+				1363CA821A5C9B52008FC7AA /* OpenSans-Semibold.ttf */,
+				1363CA6E1A5AEEA6008FC7AA /* NSDate+TimeAgo.h */,
+				1363CA6F1A5AEEA6008FC7AA /* NSDate+TimeAgo.m */,
+				1363CA701A5AEEA6008FC7AA /* NSDateTimeAgo.bundle */,
 				13BAB2721A5ACD2E0043FA14 /* Info.plist */,
 				13BAB2731A5ACD2E0043FA14 /* main.m */,
 			);
@@ -158,8 +231,16 @@
 		13BAB29A1A5ACDC10043FA14 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1363CA8E1A5DE3D7008FC7AA /* NavigationBarController.h */,
+				1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */,
 				13BAB2971A5ACDBD0043FA14 /* DeparturesViewController.h */,
 				13BAB2981A5ACDBD0043FA14 /* DeparturesViewController.m */,
+				1363CA851A5D99D5008FC7AA /* DepartureDetailViewController.h */,
+				1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */,
+				13CF58791A5ECF840060E625 /* RouteDeparturesViewController.h */,
+				13CF587A1A5ECF840060E625 /* RouteDeparturesViewController.m */,
+				1363CA8B1A5DE1D9008FC7AA /* LocationSearchViewController.h */,
+				1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -175,6 +256,10 @@
 				13BAB2A71A5AD0440043FA14 /* Route.m */,
 				13BAB29F1A5ACF430043FA14 /* Stop.h */,
 				13BAB2A01A5ACF430043FA14 /* Stop.m */,
+				1363CA881A5DD628008FC7AA /* TripCallingPoint.h */,
+				1363CA891A5DD628008FC7AA /* TripCallingPoint.m */,
+				139266011A5EE1D900AF8E53 /* DepartureTimelinePoint.h */,
+				139266021A5EE1D900AF8E53 /* DepartureTimelinePoint.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -290,8 +375,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1363CA721A5AEEA6008FC7AA /* NSDateTimeAgo.bundle in Resources */,
 				13BAB2821A5ACD2E0043FA14 /* LaunchScreen.xib in Resources */,
+				1363CA831A5C9B52008FC7AA /* OpenSans-Regular.ttf in Resources */,
 				13BAB27F1A5ACD2E0043FA14 /* Images.xcassets in Resources */,
+				1363CA841A5C9B52008FC7AA /* OpenSans-Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,14 +430,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1363CA8D1A5DE1D9008FC7AA /* LocationSearchViewController.m in Sources */,
+				1363CA8A1A5DD628008FC7AA /* TripCallingPoint.m in Sources */,
 				13BAB2AF1A5AD17C0043FA14 /* DepartureController.m in Sources */,
+				1363CA761A5AF21F008FC7AA /* MapTableViewCell.m in Sources */,
+				139266031A5EE1D900AF8E53 /* DepartureTimelinePoint.m in Sources */,
+				1363CA7D1A5C8CA6008FC7AA /* DepartureTableViewCell.m in Sources */,
 				13BAB2A11A5ACF430043FA14 /* Stop.m in Sources */,
 				13BAB2991A5ACDBD0043FA14 /* DeparturesViewController.m in Sources */,
 				13BAB2771A5ACD2E0043FA14 /* AppDelegate.m in Sources */,
+				13CF587B1A5ECF840060E625 /* RouteDeparturesViewController.m in Sources */,
+				1363CA901A5DE3D7008FC7AA /* NavigationBarController.m in Sources */,
 				13BAB2B21A5AD1A10043FA14 /* AppController.m in Sources */,
+				1363CA801A5C985B008FC7AA /* HighlightView.m in Sources */,
+				1363CA711A5AEEA6008FC7AA /* NSDate+TimeAgo.m in Sources */,
+				1363CA871A5D99D5008FC7AA /* DepartureDetailViewController.m in Sources */,
 				13BAB2A81A5AD0440043FA14 /* Route.m in Sources */,
 				13BAB2AB1A5AD0A40043FA14 /* Model.m in Sources */,
 				13BAB29E1A5ACF350043FA14 /* Departure.m in Sources */,
+				1363CA791A5AF298008FC7AA /* MapTableRow.m in Sources */,
+				139266061A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m in Sources */,
 				13BAB2741A5ACD2E0043FA14 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
