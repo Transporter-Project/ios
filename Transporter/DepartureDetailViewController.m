@@ -10,8 +10,11 @@
 #import "TransporterKit.h"
 #import "RouteDeparturesViewController.h"
 #import "DepartureBarView.h"
+#import "PCAngularActivityIndicatorView.h"
 
 @interface DepartureDetailViewController ()
+
+@property (readonly, strong) PCAngularActivityIndicatorView *activityIndicatorView;
 
 @end
 
@@ -47,6 +50,10 @@
     self.departureBarView.backgroundColor = self.departure.route.color;
     [self.view addSubview:self.departureBarView];
     
+    _activityIndicatorView = [[PCAngularActivityIndicatorView alloc] initWithActivityIndicatorStyle:PCAngularActivityIndicatorViewStyleLarge];
+    self.activityIndicatorView.color = [UIColor whiteColor];
+    [self.parentViewController.view addSubview:self.activityIndicatorView];
+    
     self.view.backgroundColor = self.departure.route.color;
     
     [self reload];
@@ -55,8 +62,11 @@
 - (void)reload
 {
     self.mapView.alpha = 0.0;
+    [self.activityIndicatorView startAnimating];
     
     [self.departureController tripDetailsForDeparture:self.departure completion:^(NSArray *callingPoints, NSArray *stops, NSError *error) {
+        
+        [self.activityIndicatorView stopAnimating];
     
         [UIView animateWithDuration:0.5 animations:^{
             self.mapView.alpha = 1.0;
@@ -81,7 +91,7 @@
     
     self.mapView.frame = self.view.bounds;
     self.departureBarView.frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height + 20, self.view.bounds.size.width, 50);
-
+    self.activityIndicatorView.center = self.parentViewController.view.center;
 }
 
 - (void)handleOtherTimes:(id)sender
