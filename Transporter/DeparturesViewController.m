@@ -145,7 +145,7 @@
     
     [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
         
-        [UIView animateWithDuration:0.7 delay:0.15 * idx usingSpringWithDamping:0.8 initialSpringVelocity:0.5 options:kNilOptions animations:^{
+        [UIView animateWithDuration:0.6 delay:0.1 * idx usingSpringWithDamping:0.85 initialSpringVelocity:0.9 options:kNilOptions animations:^{
             
             cell.transform = CGAffineTransformMakeTranslation(0, 0);
             
