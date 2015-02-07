@@ -84,7 +84,10 @@
         __block NSInteger lowestPointDelta = MAXFLOAT;
         
         __block DepartureTimelinePoint *previousPoint = nil;
+        __block DepartureTimelinePoint *closestTimelinePoint = nil;
         
+        NSTimeInterval currentTimeInterval = [[NSDate date] timeIntervalSinceDate:[NSDate dateWithTimeIntervalSince1970:0]];
+
         [departures enumerateObjectsUsingBlock:^(Departure *departure, NSUInteger idx, BOOL *stop) {
             
             DepartureTimelinePoint *point = [DepartureTimelinePoint new];
@@ -98,13 +101,19 @@
                     lowestPointDelta = pointDelta;
                 }
                 
+                if([point.departureDate timeIntervalSince1970] > currentTimeInterval && !closestTimelinePoint) {
+                    closestTimelinePoint = point;
+                }
+                
                 point.timeDelta = pointDelta;
                 [pointDeltas addObject:@(pointDelta)];
             }
             
             [points addObject:point];
             previousPoint = point;
+            
         }];
+        
         
         [points enumerateObjectsUsingBlock:^(DepartureTimelinePoint *point, NSUInteger idx, BOOL *stop) {
             
@@ -116,6 +125,15 @@
         EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:points footerTitle:nil selection:nil];
         [self addSection:departureSection];
         [self.tableView reloadData];
+        
+        NSInteger closestIndex = [points indexOfObject:closestTimelinePoint] - 1;
+        
+        if (closestIndex < 0) {
+            closestIndex = 0;
+        }
+        
+        NSIndexPath *closestTimelinePointIndexPath = [NSIndexPath indexPathForRow:closestIndex inSection:0];
+        [self.tableView scrollToRowAtIndexPath:closestTimelinePointIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
     }];
 
 }
