@@ -125,6 +125,10 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
+    
     MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"Marker"];
     
     if (!annotationView) {
