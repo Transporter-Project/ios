@@ -54,6 +54,7 @@
 		13D3A86A1A86299B005E5CE4 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8601A86299B005E5CE4 /* UIProgressView+AFNetworking.m */; };
 		13D3A86B1A86299B005E5CE4 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8621A86299B005E5CE4 /* UIRefreshControl+AFNetworking.m */; };
 		13D3A86C1A86299B005E5CE4 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8641A86299B005E5CE4 /* UIWebView+AFNetworking.m */; };
+		13D3A8711A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8701A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,8 @@
 		13D3A8631A86299B005E5CE4 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		13D3A8641A86299B005E5CE4 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		13D3A86D1A862F94005E5CE4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		13D3A86F1A8655A9005E5CE4 /* PCAngularActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAngularActivityIndicatorView.h; sourceTree = "<group>"; };
+		13D3A8701A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAngularActivityIndicatorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +330,8 @@
 		13D3A8531A86298B005E5CE4 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				13D3A86F1A8655A9005E5CE4 /* PCAngularActivityIndicatorView.h */,
+				13D3A8701A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m */,
 				13D3A8541A86299B005E5CE4 /* AFNetworkActivityIndicatorManager.h */,
 				13D3A8551A86299B005E5CE4 /* AFNetworkActivityIndicatorManager.m */,
 				13D3A8561A86299B005E5CE4 /* UIActivityIndicatorView+AFNetworking.h */,
@@ -513,6 +518,7 @@
 				13D3A84E1A862986005E5CE4 /* AFSecurityPolicy.m in Sources */,
 				1363CA791A5AF298008FC7AA /* MapTableRow.m in Sources */,
 				13D3A86C1A86299B005E5CE4 /* UIWebView+AFNetworking.m in Sources */,
+				13D3A8711A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m in Sources */,
 				139266061A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m in Sources */,
 				13D3A8661A86299B005E5CE4 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				13BAB2741A5ACD2E0043FA14 /* main.m in Sources */,
