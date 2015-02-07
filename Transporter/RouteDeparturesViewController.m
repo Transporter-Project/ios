@@ -9,8 +9,11 @@
 #import "RouteDeparturesViewController.h"
 #import "TransporterKit.h"
 #import "DepartureTimelinePoint.h"
+#import "PCAngularActivityIndicatorView.h"
 
 @interface RouteDeparturesViewController ()
+
+@property (nonatomic, strong) PCAngularActivityIndicatorView *activityIndicatorView;
 
 @end
 
@@ -32,10 +35,30 @@
 
 - (void)viewDidLoad
 {
+    _activityIndicatorView = [[PCAngularActivityIndicatorView alloc] initWithActivityIndicatorStyle:PCAngularActivityIndicatorViewStyleLarge];
+    self.activityIndicatorView.color = [UIColor whiteColor];
+    [self.view addSubview:self.activityIndicatorView];
+    
     self.view.backgroundColor = self.route.color;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+ 
+    [self reload];
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    self.activityIndicatorView.center = self.view.window.center;
+}
+
+- (void)reload
+{
+    [self.activityIndicatorView startAnimating];
     
     [self.departureController departuresForStop:self.stop withRoute:self.route completion:^(NSArray *departures, NSArray *routes, NSArray *stops, CLLocation *location, NSError *error) {
+        
+        [self.activityIndicatorView stopAnimating];
         
         NSMutableArray *points = [NSMutableArray arrayWithCapacity:departures.count];
         NSMutableArray *pointDeltas = [NSMutableArray arrayWithCapacity:departures.count];
@@ -75,6 +98,7 @@
         [self addSection:departureSection];
         [self.tableView reloadData];
     }];
+
 }
 
 @end

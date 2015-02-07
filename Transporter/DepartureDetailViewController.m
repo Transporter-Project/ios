@@ -24,7 +24,7 @@
         _departureController = [[AppController sharedController] departureController];
 
         self.title = depature.route.shortName;
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Other Times" style:UIBarButtonItemStylePlain target:self action:@selector(handleOtherTimes:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"BarButtonItem-Time"] style:UIBarButtonItemStylePlain target:self action:@selector(handleOtherTimes:)];
     }
     
     return self;
@@ -58,6 +58,7 @@
     self.stopLabel.font = [UIFont fontWithName:@"OpenSans" size:12];
     self.stopLabel.textColor = [UIColor whiteColor];
     [self.detailBarView addSubview:self.stopLabel];
+    
 
     [self reload];
 }
