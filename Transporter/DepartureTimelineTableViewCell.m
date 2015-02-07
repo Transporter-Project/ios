@@ -15,7 +15,7 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TimelineTableRow-bg"]];
         self.contentView.backgroundColor = [UIColor clearColor];
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.textLabel.textColor = [UIColor whiteColor];

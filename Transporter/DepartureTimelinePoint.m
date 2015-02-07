@@ -30,7 +30,7 @@
     }
     
     if (height > contraintSize.height) {
-        height = contraintSize.height - (contraintSize.height / 2);
+        height = contraintSize.height - (contraintSize.height / 6);
     }
     
     return height;

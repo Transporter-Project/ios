@@ -10,8 +10,13 @@
 #import "TransporterKit.h"
 #import "DepartureDetailViewController.h"
 #import "LocationSearchViewController.h"
+#import "PCAngularActivityIndicatorView.h"
 
 @interface DeparturesViewController ()
+
+@property (nonatomic, assign) NSInteger currentColorIndex;
+@property (nonatomic, strong) NSTimer *colorTimer;
+@property (nonatomic, strong) PCAngularActivityIndicatorView *activityIndicatorView;
 
 @end
 
@@ -31,20 +36,81 @@
 {
     [super viewDidLoad];
     
-    _searchBar = [[UISearchBar alloc] init];
-    self.searchBar.searchBarStyle = UISearchBarStyleDefault;
-    self.searchBar.barTintColor = [UIColor blackColor];
-    self.navigationItem.titleView = self.searchBar;
+    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setDefaultTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    _activityIndicatorView = [[PCAngularActivityIndicatorView alloc] initWithActivityIndicatorStyle:PCAngularActivityIndicatorViewStyleLarge];
+    self.activityIndicatorView.color = [UIColor whiteColor];
+    [self.view addSubview:self.activityIndicatorView];
+
+    _searchBar = [[UISearchBar alloc] init];
+    self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    self.searchBar.barTintColor = [UIColor whiteColor];
+    self.searchBar.placeholder = @"Locating...";
+    self.searchBar.translucent = YES;
+//    self.navigationItem.titleView = self.searchBar;
+
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self reload];
+    [self updateBackgroundColor];
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+//    self.activityIndicatorView.center = self.parentViewController.view.center;
+    
+    CGRect activityFrame = self.activityIndicatorView.frame;
+    activityFrame.origin.x = self.view.bounds.size.width / 2 - activityFrame.size.width / 2;
+    activityFrame.origin.y = self.view.bounds.size.height / 2 - activityFrame.size.height;
+    self.activityIndicatorView.frame = activityFrame;
+}
+
+- (void)updateBackgroundColor
+{
+    NSArray *colors = [Route colors];
+    
+    if (self.currentColorIndex >= colors.count) {
+        self.currentColorIndex = 0;
+    }
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.backgroundColor = colors[self.currentColorIndex];
+    }];
+    
+    self.currentColorIndex ++;
+}
+
+- (void)setLoading:(BOOL)loading
+{
+    [super willChangeValueForKey:@"loading"];
+    
+    _loading = loading;
+    
+    if (loading) {
+        
+        self.colorTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateBackgroundColor) userInfo:nil repeats:YES];
+        [self.activityIndicatorView startAnimating];
+        
+    } else {
+        
+        [self.colorTimer invalidate];
+        self.colorTimer = nil;
+        [self.activityIndicatorView stopAnimating];
+        
+    }
+    
+    [super didChangeValueForKey:@"loading"];
 }
 
 - (void)reload
 {
+    self.loading = YES;
+    
     [self.departureController departuresNearCurrentLocationWithCompletion:^(NSArray *departures, NSArray *routes, NSArray *stops, CLLocation *location, NSError *error) {
+        
+        self.loading = NO;
         
         self.view.backgroundColor = [[[departures firstObject] route] color];
         
@@ -60,11 +126,30 @@
             
             CLPlacemark *placemark = [placemarks firstObject];
             
-            self.searchBar.text = placemark.name;
+            self.title = placemark.name;
         }];
         
         [self addSection:departureSection];
         [self.tableView reloadData];
+        
+        [self animateCellsIn];
+    }];
+}
+
+- (void)animateCellsIn
+{
+    [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
+        
+        cell.transform = CGAffineTransformMakeTranslation(self.view.bounds.size.width, 0);
+    }];
+    
+    [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
+        
+        [UIView animateWithDuration:0.6 delay:0.1 * idx usingSpringWithDamping:0.85 initialSpringVelocity:0.9 options:kNilOptions animations:^{
+            
+            cell.transform = CGAffineTransformMakeTranslation(0, 0);
+            
+        } completion:nil];
     }];
 }
 
@@ -76,7 +161,7 @@
 
 - (UIColor *)navigationBarColor
 {
-    return [UIColor clearColor];
+    return [[UIColor blackColor] colorWithAlphaComponent:0.2];
 }
 
 @end
