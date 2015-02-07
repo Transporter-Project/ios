@@ -31,32 +31,11 @@
 {
     [super viewDidLoad];
     
-    /*
-    LocationSearchViewController *searchViewController = [LocationSearchViewController new];
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchViewController];
-    self.searchController.searchBar.searchBarStyle = UISearchBarStyleDefault;
-    self.navigationItem.titleView = self.searchController.searchBar;
-    */
+    _searchBar = [[UISearchBar alloc] init];
+    self.searchBar.searchBarStyle = UISearchBarStyleDefault;
+    self.searchBar.barTintColor = [UIColor blackColor];
+    self.navigationItem.titleView = self.searchBar;
     
-    /*
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    [self.departureController departuresNearCoordinate:CLLocationCoordinate2DMake(50.719752, -1.887052) completion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
-        
-        self.view.backgroundColor = [[[departures firstObject] route] color];
-        
-        EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:departures footerTitle:nil selection:^(EKTableRowSelection *selection) {
-            
-            Departure *departure = (Departure *)selection.object;
-            [self handleDeparture:departure];
-        }];
-        
-        [self addSection:departureSection];
-        [self.tableView reloadData];
-    }];
-     */
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -77,9 +56,7 @@
             
             CLPlacemark *placemark = [placemarks firstObject];
             
-            NSLog(@"PLACEMARK: %@", placemark);
-            
-            self.title = placemark.name;
+            self.searchBar.text = placemark.name;
         }];
         
         [self addSection:departureSection];
