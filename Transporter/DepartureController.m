@@ -74,11 +74,20 @@
             }];
         }];
         
-        completion(departures, routes, stops, nil);
+        CLLocation *originLocation = nil;
+        
+        // Construct coordiante
+        if (query[@"lat"] && query[@"lon"]) {
+            
+            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([query[@"lat"] doubleValue], [query[@"lon"] doubleValue]);
+            originLocation = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+        }
+        
+        completion(departures, routes, stops, originLocation, nil);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        completion(nil, nil, nil, error);
+        completion(nil, nil, nil, nil, error);
     }];
 }
 
@@ -100,7 +109,6 @@
         completion(times, stops, nil);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
         
     }];
 }

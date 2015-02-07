@@ -58,7 +58,10 @@
     }];
      */
     
-    [self.departureController departuresNearCurrentLocationWithCompletion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self.departureController departuresNearCurrentLocationWithCompletion:^(NSArray *departures, NSArray *routes, NSArray *stops, CLLocation *location, NSError *error) {
         
         self.view.backgroundColor = [[[departures firstObject] route] color];
         
@@ -66,6 +69,17 @@
             
             Departure *departure = (Departure *)selection.object;
             [self handleDeparture:departure];
+        }];
+        
+        CLGeocoder *geocoder = [CLGeocoder new];
+        
+        [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+            
+            CLPlacemark *placemark = [placemarks firstObject];
+            
+            NSLog(@"PLACEMARK: %@", placemark);
+            
+            self.title = placemark.name;
         }];
         
         [self addSection:departureSection];

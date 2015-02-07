@@ -17,7 +17,7 @@
 
 @interface DepartureController : NSObject <CLLocationManagerDelegate>
 
-typedef void (^DepartureCompletion)(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error);
+typedef void (^DepartureCompletion)(NSArray *departures, NSArray *routes, NSArray *stops, CLLocation *originLocation, NSError *error);
 typedef void (^TripDetailsCompletion)(NSArray *callingPoints, NSArray *stops, NSError *error);
 
 @property (nonatomic, strong) AFHTTPRequestOperationManager *requestManager;

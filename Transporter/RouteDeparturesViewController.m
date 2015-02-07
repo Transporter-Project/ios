@@ -35,7 +35,7 @@
     self.view.backgroundColor = self.route.color;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    [self.departureController departuresForStop:self.stop withRoute:self.route completion:^(NSArray *departures, NSArray *routes, NSArray *stops, NSError *error) {
+    [self.departureController departuresForStop:self.stop withRoute:self.route completion:^(NSArray *departures, NSArray *routes, NSArray *stops, CLLocation *location, NSError *error) {
         
         NSMutableArray *points = [NSMutableArray arrayWithCapacity:departures.count];
         NSMutableArray *pointDeltas = [NSMutableArray arrayWithCapacity:departures.count];

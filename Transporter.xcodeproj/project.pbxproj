@@ -158,6 +158,7 @@
 		13D3A8621A86299B005E5CE4 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		13D3A8631A86299B005E5CE4 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		13D3A8641A86299B005E5CE4 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		13D3A86D1A862F94005E5CE4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +370,7 @@
 		F3A82BF8C8650DA70642086E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				13D3A86D1A862F94005E5CE4 /* AddressBook.framework */,
 				13BAB2BF1A5AE7530043FA14 /* libLightningTable.a */,
 			);
 			name = Frameworks;
