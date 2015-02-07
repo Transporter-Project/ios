@@ -26,6 +26,7 @@
 
 - (void)departuresNearCurrentLocationWithCompletion:(DepartureCompletion)completion
 {
+    [self.locationManager requestAlwaysAuthorization];
     [self departuresNearCoordinate:CLLocationCoordinate2DMake(50.719687, -1.885315) completion:completion];
 }
 

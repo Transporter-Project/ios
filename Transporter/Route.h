@@ -15,4 +15,6 @@
 @property (readonly, strong) NSString *longName;
 @property (nonatomic, strong) UIColor *color;
 
++ (NSArray *)colors;
+
 @end

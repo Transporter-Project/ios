@@ -13,6 +13,9 @@
 
 @interface DeparturesViewController ()
 
+@property (nonatomic, assign) NSInteger currentColorIndex;
+@property (nonatomic, strong) NSTimer *colorTimer;
+
 @end
 
 @implementation DeparturesViewController
@@ -31,20 +34,62 @@
 {
     [super viewDidLoad];
     
+    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setDefaultTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+
     _searchBar = [[UISearchBar alloc] init];
-    self.searchBar.searchBarStyle = UISearchBarStyleDefault;
-    self.searchBar.barTintColor = [UIColor blackColor];
+    self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    self.searchBar.barTintColor = [UIColor whiteColor];
+    self.searchBar.placeholder = @"Locating...";
+    self.searchBar.translucent = YES;
     self.navigationItem.titleView = self.searchBar;
-    
-    self.view.backgroundColor = [UIColor whiteColor];
+
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self reload];
+    [self updateBackgroundColor];
+   
+}
+
+- (void)updateBackgroundColor
+{
+    NSArray *colors = [Route colors];
+    
+    if (self.currentColorIndex >= colors.count) {
+        self.currentColorIndex = 0;
+    }
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.backgroundColor = colors[self.currentColorIndex];
+    }];
+    
+    self.currentColorIndex ++;
+}
+
+- (void)setLoading:(BOOL)loading
+{
+    [super willChangeValueForKey:@"loading"];
+    
+    _loading = loading;
+    
+    if (loading) {
+        
+        self.colorTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateBackgroundColor) userInfo:nil repeats:YES];
+    } else {
+        
+        [self.colorTimer invalidate];
+        self.colorTimer = nil;
+    }
+    
+    [super didChangeValueForKey:@"loading"];
 }
 
 - (void)reload
 {
+    self.loading = YES;
+    
     [self.departureController departuresNearCurrentLocationWithCompletion:^(NSArray *departures, NSArray *routes, NSArray *stops, CLLocation *location, NSError *error) {
+        
+        self.loading = NO;
         
         self.view.backgroundColor = [[[departures firstObject] route] color];
         
@@ -65,6 +110,25 @@
         
         [self addSection:departureSection];
         [self.tableView reloadData];
+        
+        [self animateCellsIn];
+    }];
+}
+
+- (void)animateCellsIn
+{
+    [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
+        
+        cell.transform = CGAffineTransformMakeTranslation(self.view.bounds.size.width, 0);
+    }];
+    
+    [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
+        
+        [UIView animateWithDuration:0.7 delay:0.15 * idx usingSpringWithDamping:0.8 initialSpringVelocity:0.5 options:kNilOptions animations:^{
+            
+            cell.transform = CGAffineTransformMakeTranslation(0, 0);
+            
+        } completion:nil];
     }];
 }
 
@@ -76,7 +140,7 @@
 
 - (UIColor *)navigationBarColor
 {
-    return [UIColor clearColor];
+    return [[UIColor blackColor] colorWithAlphaComponent:0.1];
 }
 
 @end

@@ -59,6 +59,11 @@
     self.stopLabel.textColor = [UIColor whiteColor];
     [self.detailBarView addSubview:self.stopLabel];
 
+    [self reload];
+}
+
+- (void)reload
+{
     [self.departureController tripDetailsForDeparture:self.departure completion:^(NSArray *callingPoints, NSArray *stops, NSError *error) {
         
         [self.mapView addAnnotations:callingPoints];
