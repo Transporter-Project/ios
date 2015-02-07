@@ -47,15 +47,31 @@
     self.departureBarView.backgroundColor = self.departure.route.color;
     [self.view addSubview:self.departureBarView];
     
+    self.view.backgroundColor = self.departure.route.color;
+    
     [self reload];
 }
 
 - (void)reload
 {
+    self.mapView.alpha = 0.0;
+    
     [self.departureController tripDetailsForDeparture:self.departure completion:^(NSArray *callingPoints, NSArray *stops, NSError *error) {
+    
+        [UIView animateWithDuration:0.5 animations:^{
+            self.mapView.alpha = 1.0;
+        }];
         
         [self.mapView addAnnotations:callingPoints];
         [self drawRouteWithCallingPoints:callingPoints];
+    
+        [UIView animateKeyframesWithDuration:0.0 delay:0.5 options:kNilOptions animations:^{
+            
+            
+        } completion:^(BOOL finished) {
+            
+            [self showUserAndStopAnimated:YES];
+        }];
     }];
 }
 
@@ -149,7 +165,22 @@
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    [self.mapView showAnnotations:@[userLocation, self.departure.stop] animated:YES];
+}
+
+- (void)showUserAndStopAnimated:(BOOL)animated
+{
+    __block MKUserLocation *userLocation = nil;
+    
+    [self.mapView.annotations enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
+        if ([obj isKindOfClass:[MKUserLocation class]]) {
+            userLocation = obj;
+        }
+    }];
+    
+    if (userLocation) {
+        [self.mapView showAnnotations:@[userLocation, self.departure.stop] animated:animated];
+    }
 }
 
 #pragma mark - Navigation bar delegate

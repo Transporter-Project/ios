@@ -14,7 +14,7 @@
 
 @interface RouteDeparturesViewController ()
 
-@property (nonatomic, strong) PCAngularActivityIndicatorView *activityIndicatorView;
+@property (readonly, strong) PCAngularActivityIndicatorView *activityIndicatorView;
 
 @end
 
@@ -43,7 +43,7 @@
     
     _activityIndicatorView = [[PCAngularActivityIndicatorView alloc] initWithActivityIndicatorStyle:PCAngularActivityIndicatorViewStyleLarge];
     self.activityIndicatorView.color = [UIColor whiteColor];
-    [self.view addSubview:self.activityIndicatorView];
+    [self.parentViewController.view addSubview:self.activityIndicatorView];
     
     self.view.backgroundColor = self.route.color;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -55,10 +55,7 @@
 {
     [super viewWillLayoutSubviews];
     
-    CGRect activityFrame = self.activityIndicatorView.frame;
-    activityFrame.origin.x = self.view.bounds.size.width / 2 - activityFrame.size.width / 2;
-    activityFrame.origin.y = self.view.bounds.size.height / 2 - activityFrame.size.height;
-    self.activityIndicatorView.frame = activityFrame;
+    self.activityIndicatorView.center = self.parentViewController.view.center;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -114,7 +111,6 @@
             
         }];
         
-        
         [points enumerateObjectsUsingBlock:^(DepartureTimelinePoint *point, NSUInteger idx, BOOL *stop) {
             
             point.color = self.route.color;
@@ -134,8 +130,27 @@
         
         NSIndexPath *closestTimelinePointIndexPath = [NSIndexPath indexPathForRow:closestIndex inSection:0];
         [self.tableView scrollToRowAtIndexPath:closestTimelinePointIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+        [self animateCellsIn];
     }];
 
+}
+
+- (void)animateCellsIn
+{
+    [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
+        cell.alpha = 0.0;
+        cell.transform = CGAffineTransformMakeScale(0.5, 0.5);
+    }];
+    
+    [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
+        
+        [UIView animateWithDuration:0.5 delay:0.05 * idx options:kNilOptions animations:^{
+            
+            cell.alpha = 1.0;
+            cell.transform = CGAffineTransformMakeScale(1.0, 1.0);
+            
+        } completion:nil];
+    }];
 }
 
 @end

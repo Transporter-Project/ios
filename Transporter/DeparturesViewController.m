@@ -42,13 +42,6 @@
     self.activityIndicatorView.color = [UIColor whiteColor];
     [self.view addSubview:self.activityIndicatorView];
 
-    _searchBar = [[UISearchBar alloc] init];
-    self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
-    self.searchBar.barTintColor = [UIColor whiteColor];
-    self.searchBar.placeholder = @"Locating...";
-    self.searchBar.translucent = YES;
-//    self.navigationItem.titleView = self.searchBar;
-
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self reload];
