@@ -22,7 +22,7 @@
 		<key>EF4B16933269571D8552274BFADECD73DE44ADE6</key>
 		<string>..</string>
 		<key>F563DB6D6AE737BDF4F089CB0C2E84164C4784A9</key>
-		<string>..LightningTable/</string>
+		<string>..LightningTable</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>bitbucket.org:phillipcaudell/transporter-ios.git</string>
@@ -36,17 +36,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F563DB6D6AE737BDF4F089CB0C2E84164C4784A9</string>
+			<string>EF4B16933269571D8552274BFADECD73DE44ADE6</string>
 			<key>IDESourceControlWCCName</key>
-			<string>LightningTable</string>
+			<string>Transporter</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>EF4B16933269571D8552274BFADECD73DE44ADE6</string>
+			<string>F563DB6D6AE737BDF4F089CB0C2E84164C4784A9</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Transporter</string>
+			<string>TransporterLightningTable</string>
 		</dict>
 	</array>
 </dict>

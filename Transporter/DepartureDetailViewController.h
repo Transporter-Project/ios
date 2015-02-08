@@ -8,19 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "NavigationBarController.h"
 
 @class Departure;
 @class DepartureController;
 @class DepartureBarView;
 
-@interface DepartureDetailViewController : UIViewController <MKMapViewDelegate, NavigationBarControllerDelegate>
+@interface DepartureDetailViewController : UIViewController <MKMapViewDelegate>
 
 @property (readonly, strong) Departure *departure;
 @property (readonly, strong) MKMapView *mapView;
 @property (readonly, strong) DepartureController *departureController;
 @property (readonly, strong) DepartureBarView *departureBarView;
-
+@property (nonatomic, assign) BOOL loading;
 
 - (instancetype)initWithDeparture:(Departure *)depature;
 

@@ -17,7 +17,6 @@
 		1363CA841A5C9B52008FC7AA /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1363CA821A5C9B52008FC7AA /* OpenSans-Semibold.ttf */; };
 		1363CA871A5D99D5008FC7AA /* DepartureDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */; };
 		1363CA8A1A5DD628008FC7AA /* TripCallingPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA891A5DD628008FC7AA /* TripCallingPoint.m */; };
-		1363CA8D1A5DE1D9008FC7AA /* LocationSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */; };
 		1363CA901A5DE3D7008FC7AA /* NavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */; };
 		139266031A5EE1D900AF8E53 /* DepartureTimelinePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 139266021A5EE1D900AF8E53 /* DepartureTimelinePoint.m */; };
 		139266061A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 139266051A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m */; };
@@ -87,8 +86,6 @@
 		1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartureDetailViewController.m; sourceTree = "<group>"; };
 		1363CA881A5DD628008FC7AA /* TripCallingPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripCallingPoint.h; sourceTree = "<group>"; };
 		1363CA891A5DD628008FC7AA /* TripCallingPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripCallingPoint.m; sourceTree = "<group>"; };
-		1363CA8B1A5DE1D9008FC7AA /* LocationSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSearchViewController.h; sourceTree = "<group>"; };
-		1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSearchViewController.m; sourceTree = "<group>"; };
 		1363CA8E1A5DE3D7008FC7AA /* NavigationBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBarController.h; sourceTree = "<group>"; };
 		1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarController.m; sourceTree = "<group>"; };
 		139266011A5EE1D900AF8E53 /* DepartureTimelinePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartureTimelinePoint.h; sourceTree = "<group>"; };
@@ -293,8 +290,6 @@
 				1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */,
 				13CF58791A5ECF840060E625 /* RouteDeparturesViewController.h */,
 				13CF587A1A5ECF840060E625 /* RouteDeparturesViewController.m */,
-				1363CA8B1A5DE1D9008FC7AA /* LocationSearchViewController.h */,
-				1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -486,7 +481,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13D3A8681A86299B005E5CE4 /* UIButton+AFNetworking.m in Sources */,
-				1363CA8D1A5DE1D9008FC7AA /* LocationSearchViewController.m in Sources */,
 				1363CA8A1A5DD628008FC7AA /* TripCallingPoint.m in Sources */,
 				13BAB2AF1A5AD17C0043FA14 /* DepartureController.m in Sources */,
 				13D3A86A1A86299B005E5CE4 /* UIProgressView+AFNetworking.m in Sources */,

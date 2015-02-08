@@ -19,3 +19,10 @@
 - (UIColor *)navigationBarColor;
 
 @end
+
+@interface UIViewController (NavigationController)
+
+- (void)setNeedsActivityIndicatorUpdate;
+- (BOOL)isLoading;
+
+@end

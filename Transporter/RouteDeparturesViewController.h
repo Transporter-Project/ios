@@ -19,6 +19,7 @@
 @property (readonly, strong) Route *route;
 @property (readonly, strong) DepartureController *departureController;
 @property (readonly, strong) DepartureBarView *departureBarView;
+@property (nonatomic, assign) BOOL loading;
 
 - (id)initWithStop:(Stop *)stop route:(Route *)route;
 
