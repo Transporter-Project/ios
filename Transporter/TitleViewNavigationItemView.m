@@ -38,4 +38,21 @@
     self.detailLabel.frame = CGRectMake(0, self.titleLabel.bounds.size.height, self.bounds.size.width, self.bounds.size.height / 2);
 }
 
+- (void)animateIn
+{
+    self.titleLabel.transform = CGAffineTransformMakeTranslation(0, self.bounds.size.height);
+    self.detailLabel.transform = CGAffineTransformMakeTranslation(0, self.bounds.size.height * 2);
+    self.titleLabel.alpha = 0.0;
+    self.detailLabel.alpha = 0.0;
+    
+    [UIView animateWithDuration:1.0 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:kNilOptions animations:^{
+        
+        self.titleLabel.transform = CGAffineTransformMakeTranslation(0, 0);
+        self.detailLabel.transform = CGAffineTransformMakeTranslation(0, 0);
+        self.titleLabel.alpha = 1.0;
+        self.detailLabel.alpha = 1.0;
+
+    } completion:nil];
+}
+
 @end

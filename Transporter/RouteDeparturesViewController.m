@@ -38,7 +38,7 @@
 {
     _departureBarView = [DepartureBarView new];
     self.departureBarView.headsignLabel.text = self.route.longName;
-    self.departureBarView.stopLabel.text = self.stop.title;
+    self.departureBarView.stopLabel.text = [NSString stringWithFormat:@"Departures from %@", self.stop.title];
     self.departureBarView.backgroundColor = self.route.color;
     
     _activityIndicatorView = [[PCAngularActivityIndicatorView alloc] initWithActivityIndicatorStyle:PCAngularActivityIndicatorViewStyleLarge];
@@ -131,6 +131,7 @@
         NSIndexPath *closestTimelinePointIndexPath = [NSIndexPath indexPathForRow:closestIndex inSection:0];
         [self.tableView scrollToRowAtIndexPath:closestTimelinePointIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
         [self animateCellsIn];
+        [self.departureBarView animateIn];
     }];
 
 }
@@ -139,12 +140,12 @@
 {
     [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
         cell.alpha = 0.0;
-        cell.transform = CGAffineTransformMakeScale(0.5, 0.5);
+        cell.transform = CGAffineTransformMakeScale(0.8, 0.8);
     }];
     
     [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
         
-        [UIView animateWithDuration:0.5 delay:0.05 * idx options:kNilOptions animations:^{
+        [UIView animateWithDuration:0.4 delay:0.08 * idx options:kNilOptions animations:^{
             
             cell.alpha = 1.0;
             cell.transform = CGAffineTransformMakeScale(1.0, 1.0);

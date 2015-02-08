@@ -16,5 +16,6 @@
 
 @property (readonly, strong) UILabel *headsignLabel;
 @property (readonly, strong) UILabel *stopLabel;
+- (void)animateIn;
 
 @end

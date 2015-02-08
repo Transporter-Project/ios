@@ -189,7 +189,10 @@
     }];
     
     if (userLocation) {
-        [self.mapView showAnnotations:@[userLocation, self.departure.stop] animated:animated];
+        
+        [UIView animateWithDuration:2.0 animations:^{
+            [self.mapView showAnnotations:@[userLocation, self.departure.stop] animated:animated];
+        }];
     }
 }
 

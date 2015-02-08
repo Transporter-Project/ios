@@ -51,4 +51,21 @@
     [self didChangeValueForKey:@"departure"];
 }
 
+- (void)animateIn
+{
+    self.headsignLabel.transform = CGAffineTransformMakeTranslation(0, self.bounds.size.height);
+    self.stopLabel.transform = CGAffineTransformMakeTranslation(0, self.bounds.size.height * 2);
+    self.headsignLabel.alpha = 0.0;
+    self.stopLabel.alpha = 0.0;
+    
+    [UIView animateWithDuration:1.0 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:kNilOptions animations:^{
+        
+        self.headsignLabel.transform = CGAffineTransformMakeTranslation(0, 0);
+        self.stopLabel.transform = CGAffineTransformMakeTranslation(0, 0);
+        self.headsignLabel.alpha = 1.0;
+        self.stopLabel.alpha = 1.0;
+        
+    } completion:nil];
+}
+
 @end

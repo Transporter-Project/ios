@@ -128,6 +128,7 @@
             
             self.titleView.titleLabel.text = placemark.name;
             self.titleView.detailLabel.text = placemark.subAdministrativeArea;
+            [self.titleView animateIn];
         }];
         
         [self addSection:departureSection];
@@ -162,7 +163,7 @@
 
 - (UIColor *)navigationBarColor
 {
-    return [[UIColor blackColor] colorWithAlphaComponent:0.2];
+    return [[UIColor blackColor] colorWithAlphaComponent:0.4];
 }
 
 @end

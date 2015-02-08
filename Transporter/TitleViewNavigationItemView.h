@@ -13,4 +13,6 @@
 @property (readonly, strong) UILabel *titleLabel;
 @property (readonly, strong) UILabel *detailLabel;
 
+- (void)animateIn;
+
 @end
