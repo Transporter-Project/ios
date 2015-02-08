@@ -152,7 +152,7 @@
     
     [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
         
-        [UIView animateWithDuration:0.4 delay:0.08 * idx options:kNilOptions animations:^{
+        [UIView animateWithDuration:0.3 delay:0.05 * idx options:kNilOptions animations:^{
             
             cell.alpha = 1.0;
             cell.transform = CGAffineTransformMakeScale(1.0, 1.0);

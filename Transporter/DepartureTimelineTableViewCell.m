@@ -19,7 +19,8 @@
         self.contentView.backgroundColor = [UIColor clearColor];
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.textLabel.textColor = [UIColor whiteColor];
-        
+        self.textLabel.font = [UIFont fontWithName:@"OpenSans" size:18];
+
         self.dateFormatter = [[NSDateFormatter alloc] init];
         self.dateFormatter.timeStyle = NSDateFormatterShortStyle;
         
