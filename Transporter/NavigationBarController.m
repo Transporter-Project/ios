@@ -12,6 +12,7 @@
 @interface NavigationBarController ()
 
 @property (readonly, strong) PCAngularActivityIndicatorView *activityIndicatorView;
+@property (nonatomic, strong) UIView *navigationBarBackground;
 
 @end
 
@@ -67,8 +68,6 @@
 {
     return UIStatusBarStyleLightContent;
 }
-
-
 
 @end
 

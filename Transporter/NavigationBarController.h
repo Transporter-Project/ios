@@ -10,8 +10,6 @@
 
 @interface NavigationBarController : UINavigationController <UINavigationControllerDelegate>
 
-@property (nonatomic, strong) UIView *navigationBarBackground;
-
 @end
 
 @protocol NavigationBarControllerDelegate <NSObject>

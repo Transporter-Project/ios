@@ -161,4 +161,11 @@
     }];
 }
 
+#pragma mark - Navigation bar delegate
+
+- (UIColor *)navigationBarColor
+{
+    return self.route.color;
+}
+
 @end

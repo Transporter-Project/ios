@@ -67,6 +67,8 @@
     self.currentColorIndex ++;
 }
 
+#pragma mark - Loading
+
 - (void)setLoading:(BOOL)loading
 {
     [super willChangeValueForKey:@"loading"];
@@ -92,6 +94,8 @@
     return self.loading;
 }
 
+#pragma mark - Reload
+
 - (void)reload
 {
     self.loading = YES;
@@ -116,6 +120,7 @@
             
             self.titleView.titleLabel.text = placemark.name;
             self.titleView.detailLabel.text = placemark.subAdministrativeArea;
+            self.titleView.detailLabel.text = [NSString stringWithFormat:@"%lu stops and %lu routes nearby", (unsigned long)stops.count, (unsigned long)routes.count];
             [self.titleView animateIn];
         }];
         
@@ -143,11 +148,15 @@
     }];
 }
 
+#pragma mark - Actions
+
 - (void)handleDeparture:(Departure *)departure
 {    
     DepartureDetailViewController *viewController = [[DepartureDetailViewController alloc] initWithDeparture:departure];
     [self.navigationController pushViewController:viewController animated:YES];
 }
+
+#pragma mark - Navigation bar delegate
 
 - (UIColor *)navigationBarColor
 {
