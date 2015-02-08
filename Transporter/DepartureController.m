@@ -53,7 +53,10 @@
 
 - (void)departuresWithOptions:(NSDictionary *)query completion:(DepartureCompletion)completion
 {
+    
     [self.requestManager GET:@"departures" parameters:query success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        
+        NSLog(@"RESPONSEL: %@", responseObject) ;
         
         NSArray *stops = [Model modelsWithDictionaries:responseObject[@"stops"] rootClass:[Stop class]];
         NSArray *routes = [Model modelsWithDictionaries:responseObject[@"routes"] rootClass:[Route class]];

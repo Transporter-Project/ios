@@ -55,6 +55,8 @@
 		13D3A86B1A86299B005E5CE4 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8621A86299B005E5CE4 /* UIRefreshControl+AFNetworking.m */; };
 		13D3A86C1A86299B005E5CE4 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8641A86299B005E5CE4 /* UIWebView+AFNetworking.m */; };
 		13D3A8711A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8701A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m */; };
+		13D3A8741A8667DB005E5CE4 /* DepartureBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8731A8667DB005E5CE4 /* DepartureBarView.m */; };
+		13D3A8771A86BED4005E5CE4 /* TitleViewNavigationItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8761A86BED4005E5CE4 /* TitleViewNavigationItemView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +164,10 @@
 		13D3A86D1A862F94005E5CE4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		13D3A86F1A8655A9005E5CE4 /* PCAngularActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAngularActivityIndicatorView.h; sourceTree = "<group>"; };
 		13D3A8701A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAngularActivityIndicatorView.m; sourceTree = "<group>"; };
+		13D3A8721A8667DB005E5CE4 /* DepartureBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartureBarView.h; sourceTree = "<group>"; };
+		13D3A8731A8667DB005E5CE4 /* DepartureBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartureBarView.m; sourceTree = "<group>"; };
+		13D3A8751A86BED4005E5CE4 /* TitleViewNavigationItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleViewNavigationItemView.h; sourceTree = "<group>"; };
+		13D3A8761A86BED4005E5CE4 /* TitleViewNavigationItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewNavigationItemView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,19 +198,16 @@
 				1363CA751A5AF21F008FC7AA /* MapTableViewCell.m */,
 				1363CA771A5AF298008FC7AA /* MapTableRow.h */,
 				1363CA781A5AF298008FC7AA /* MapTableRow.m */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		1363CA7A1A5C8BDE008FC7AA /* Views */ = {
-			isa = PBXGroup;
-			children = (
 				1363CA7B1A5C8CA6008FC7AA /* DepartureTableViewCell.h */,
 				1363CA7C1A5C8CA6008FC7AA /* DepartureTableViewCell.m */,
 				1363CA7E1A5C985B008FC7AA /* HighlightView.h */,
 				1363CA7F1A5C985B008FC7AA /* HighlightView.m */,
+				13D3A8721A8667DB005E5CE4 /* DepartureBarView.h */,
+				13D3A8731A8667DB005E5CE4 /* DepartureBarView.m */,
 				139266041A5EE36900AF8E53 /* DepartureTimelineTableViewCell.h */,
 				139266051A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m */,
+				13D3A8751A86BED4005E5CE4 /* TitleViewNavigationItemView.h */,
+				13D3A8761A86BED4005E5CE4 /* TitleViewNavigationItemView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -236,11 +239,10 @@
 				13BAB2B31A5AD2070043FA14 /* TransporterKit.h */,
 				13BAB2751A5ACD2E0043FA14 /* AppDelegate.h */,
 				13BAB2761A5ACD2E0043FA14 /* AppDelegate.m */,
+				13BAB29A1A5ACDC10043FA14 /* View Controllers */,
 				1363CA731A5AF208008FC7AA /* Views */,
 				13BAB2AC1A5AD16E0043FA14 /* Controllers */,
 				13BAB29B1A5ACF260043FA14 /* Models */,
-				13BAB29A1A5ACDC10043FA14 /* View Controllers */,
-				1363CA7A1A5C8BDE008FC7AA /* Views */,
 				13BAB27E1A5ACD2E0043FA14 /* Images.xcassets */,
 				13BAB2801A5ACD2E0043FA14 /* LaunchScreen.xib */,
 				13BAB2711A5ACD2E0043FA14 /* Supporting Files */,
@@ -513,9 +515,11 @@
 				1363CA871A5D99D5008FC7AA /* DepartureDetailViewController.m in Sources */,
 				13D3A8691A86299B005E5CE4 /* UIImageView+AFNetworking.m in Sources */,
 				13BAB2A81A5AD0440043FA14 /* Route.m in Sources */,
+				13D3A8771A86BED4005E5CE4 /* TitleViewNavigationItemView.m in Sources */,
 				13BAB2AB1A5AD0A40043FA14 /* Model.m in Sources */,
 				13BAB29E1A5ACF350043FA14 /* Departure.m in Sources */,
 				13D3A84E1A862986005E5CE4 /* AFSecurityPolicy.m in Sources */,
+				13D3A8741A8667DB005E5CE4 /* DepartureBarView.m in Sources */,
 				1363CA791A5AF298008FC7AA /* MapTableRow.m in Sources */,
 				13D3A86C1A86299B005E5CE4 /* UIWebView+AFNetworking.m in Sources */,
 				13D3A8711A8655A9005E5CE4 /* PCAngularActivityIndicatorView.m in Sources */,
@@ -643,12 +647,14 @@
 					"\"$(SRCROOT)/LightningTable/LightningTable\"",
 				);
 				INFOPLIST_FILE = Transporter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LightningTable/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -662,12 +668,14 @@
 					"\"$(SRCROOT)/LightningTable/LightningTable\"",
 				);
 				INFOPLIST_FILE = Transporter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LightningTable/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

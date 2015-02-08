@@ -16,7 +16,6 @@
 @interface DeparturesViewController : EKTableViewController <NavigationBarControllerDelegate>
 
 @property (readonly, strong) DepartureController *departureController;
-@property (readonly, strong) UISearchBar *searchBar;
 @property (nonatomic, assign, getter = isLoading) BOOL loading;
 
 @end

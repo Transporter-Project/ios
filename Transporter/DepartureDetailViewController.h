@@ -12,15 +12,15 @@
 
 @class Departure;
 @class DepartureController;
+@class DepartureBarView;
 
 @interface DepartureDetailViewController : UIViewController <MKMapViewDelegate, NavigationBarControllerDelegate>
 
 @property (readonly, strong) Departure *departure;
 @property (readonly, strong) MKMapView *mapView;
 @property (readonly, strong) DepartureController *departureController;
-@property (readonly, strong) UIView *detailBarView;
-@property (readonly, strong) UILabel *headsignLabel;
-@property (readonly, strong) UILabel *stopLabel;
+@property (readonly, strong) DepartureBarView *departureBarView;
+
 
 - (instancetype)initWithDeparture:(Departure *)depature;
 

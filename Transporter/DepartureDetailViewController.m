@@ -9,8 +9,12 @@
 #import "DepartureDetailViewController.h"
 #import "TransporterKit.h"
 #import "RouteDeparturesViewController.h"
+#import "DepartureBarView.h"
+#import "PCAngularActivityIndicatorView.h"
 
 @interface DepartureDetailViewController ()
+
+@property (readonly, strong) PCAngularActivityIndicatorView *activityIndicatorView;
 
 @end
 
@@ -41,34 +45,43 @@
     self.mapView.showsUserLocation = YES;
     [self.view addSubview:self.mapView];
     
-    _detailBarView = [UIView new];
-    self.detailBarView.backgroundColor = self.departure.route.color;
-    [self.view addSubview:self.detailBarView];
+    _departureBarView = [DepartureBarView new];
+    self.departureBarView.departure = self.departure;
+    self.departureBarView.backgroundColor = self.departure.route.color;
+    [self.view addSubview:self.departureBarView];
     
-    _headsignLabel = [UILabel new];
-    self.headsignLabel.text = self.departure.headsign;
-    self.headsignLabel.textAlignment = NSTextAlignmentCenter;
-    self.headsignLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:14];
-    self.headsignLabel.textColor = [UIColor whiteColor];
-    [self.detailBarView addSubview:self.headsignLabel];
+    _activityIndicatorView = [[PCAngularActivityIndicatorView alloc] initWithActivityIndicatorStyle:PCAngularActivityIndicatorViewStyleLarge];
+    self.activityIndicatorView.color = [UIColor whiteColor];
+    [self.parentViewController.view addSubview:self.activityIndicatorView];
     
-    _stopLabel = [UILabel new];
-    self.stopLabel.text = self.departure.stop.name;
-    self.stopLabel.textAlignment = NSTextAlignmentCenter;
-    self.stopLabel.font = [UIFont fontWithName:@"OpenSans" size:12];
-    self.stopLabel.textColor = [UIColor whiteColor];
-    [self.detailBarView addSubview:self.stopLabel];
+    self.view.backgroundColor = self.departure.route.color;
     
-
     [self reload];
 }
 
 - (void)reload
 {
+    self.mapView.alpha = 0.0;
+    [self.activityIndicatorView startAnimating];
+    
     [self.departureController tripDetailsForDeparture:self.departure completion:^(NSArray *callingPoints, NSArray *stops, NSError *error) {
+        
+        [self.activityIndicatorView stopAnimating];
+    
+        [UIView animateWithDuration:0.5 animations:^{
+            self.mapView.alpha = 1.0;
+        }];
         
         [self.mapView addAnnotations:callingPoints];
         [self drawRouteWithCallingPoints:callingPoints];
+    
+        [UIView animateKeyframesWithDuration:0.0 delay:0.5 options:kNilOptions animations:^{
+            
+            
+        } completion:^(BOOL finished) {
+            
+            [self showUserAndStopAnimated:YES];
+        }];
     }];
 }
 
@@ -77,9 +90,8 @@
     [super viewWillLayoutSubviews];
     
     self.mapView.frame = self.view.bounds;
-    self.detailBarView.frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height + 20, self.view.bounds.size.width, 50);
-    self.headsignLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width, 25);
-    self.stopLabel.frame = CGRectMake(0, 20, self.view.bounds.size.width, 25);
+    self.departureBarView.frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height + 20, self.view.bounds.size.width, 50);
+    self.activityIndicatorView.center = self.parentViewController.view.center;
 }
 
 - (void)handleOtherTimes:(id)sender
@@ -163,7 +175,25 @@
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    [self.mapView showAnnotations:@[userLocation, self.departure.stop] animated:YES];
+}
+
+- (void)showUserAndStopAnimated:(BOOL)animated
+{
+    __block MKUserLocation *userLocation = nil;
+    
+    [self.mapView.annotations enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
+        if ([obj isKindOfClass:[MKUserLocation class]]) {
+            userLocation = obj;
+        }
+    }];
+    
+    if (userLocation) {
+        
+        [UIView animateWithDuration:2.0 animations:^{
+            [self.mapView showAnnotations:@[userLocation, self.departure.stop] animated:animated];
+        }];
+    }
 }
 
 #pragma mark - Navigation bar delegate

@@ -10,10 +10,11 @@
 #import "TransporterKit.h"
 #import "DepartureTimelinePoint.h"
 #import "PCAngularActivityIndicatorView.h"
+#import "DepartureBarView.h"
 
 @interface RouteDeparturesViewController ()
 
-@property (nonatomic, strong) PCAngularActivityIndicatorView *activityIndicatorView;
+@property (readonly, strong) PCAngularActivityIndicatorView *activityIndicatorView;
 
 @end
 
@@ -35,9 +36,14 @@
 
 - (void)viewDidLoad
 {
+    _departureBarView = [DepartureBarView new];
+    self.departureBarView.headsignLabel.text = self.route.longName;
+    self.departureBarView.stopLabel.text = [NSString stringWithFormat:@"Departures from %@", self.stop.title];
+    self.departureBarView.backgroundColor = self.route.color;
+    
     _activityIndicatorView = [[PCAngularActivityIndicatorView alloc] initWithActivityIndicatorStyle:PCAngularActivityIndicatorViewStyleLarge];
     self.activityIndicatorView.color = [UIColor whiteColor];
-    [self.view addSubview:self.activityIndicatorView];
+    [self.parentViewController.view addSubview:self.activityIndicatorView];
     
     self.view.backgroundColor = self.route.color;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -49,7 +55,17 @@
 {
     [super viewWillLayoutSubviews];
     
-    self.activityIndicatorView.center = self.view.window.center;
+    self.activityIndicatorView.center = self.parentViewController.view.center;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return self.departureBarView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50;
 }
 
 - (void)reload
@@ -65,7 +81,10 @@
         __block NSInteger lowestPointDelta = MAXFLOAT;
         
         __block DepartureTimelinePoint *previousPoint = nil;
+        __block DepartureTimelinePoint *closestTimelinePoint = nil;
         
+        NSTimeInterval currentTimeInterval = [[NSDate date] timeIntervalSinceDate:[NSDate dateWithTimeIntervalSince1970:0]];
+
         [departures enumerateObjectsUsingBlock:^(Departure *departure, NSUInteger idx, BOOL *stop) {
             
             DepartureTimelinePoint *point = [DepartureTimelinePoint new];
@@ -79,12 +98,17 @@
                     lowestPointDelta = pointDelta;
                 }
                 
+                if([point.departureDate timeIntervalSince1970] > currentTimeInterval && !closestTimelinePoint) {
+                    closestTimelinePoint = point;
+                }
+                
                 point.timeDelta = pointDelta;
                 [pointDeltas addObject:@(pointDelta)];
             }
             
             [points addObject:point];
             previousPoint = point;
+            
         }];
         
         [points enumerateObjectsUsingBlock:^(DepartureTimelinePoint *point, NSUInteger idx, BOOL *stop) {
@@ -97,8 +121,37 @@
         EKTableSection *departureSection = [EKTableSection sectionWithHeaderTitle:nil rows:points footerTitle:nil selection:nil];
         [self addSection:departureSection];
         [self.tableView reloadData];
+        
+        NSInteger closestIndex = [points indexOfObject:closestTimelinePoint] - 1;
+        
+        if (closestIndex < 0) {
+            closestIndex = 0;
+        }
+        
+        NSIndexPath *closestTimelinePointIndexPath = [NSIndexPath indexPathForRow:closestIndex inSection:0];
+        [self.tableView scrollToRowAtIndexPath:closestTimelinePointIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+        [self animateCellsIn];
+        [self.departureBarView animateIn];
     }];
 
+}
+
+- (void)animateCellsIn
+{
+    [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
+        cell.alpha = 0.0;
+        cell.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    }];
+    
+    [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
+        
+        [UIView animateWithDuration:0.4 delay:0.08 * idx options:kNilOptions animations:^{
+            
+            cell.alpha = 1.0;
+            cell.transform = CGAffineTransformMakeScale(1.0, 1.0);
+            
+        } completion:nil];
+    }];
 }
 
 @end

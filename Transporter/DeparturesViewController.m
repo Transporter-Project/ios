@@ -11,12 +11,14 @@
 #import "DepartureDetailViewController.h"
 #import "LocationSearchViewController.h"
 #import "PCAngularActivityIndicatorView.h"
+#import "TitleViewNavigationItemView.h"
 
 @interface DeparturesViewController ()
 
 @property (nonatomic, assign) NSInteger currentColorIndex;
 @property (nonatomic, strong) NSTimer *colorTimer;
 @property (nonatomic, strong) PCAngularActivityIndicatorView *activityIndicatorView;
+@property (nonatomic, strong) TitleViewNavigationItemView *titleView;
 
 @end
 
@@ -42,14 +44,10 @@
     self.activityIndicatorView.color = [UIColor whiteColor];
     [self.view addSubview:self.activityIndicatorView];
 
-    _searchBar = [[UISearchBar alloc] init];
-    self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
-    self.searchBar.barTintColor = [UIColor whiteColor];
-    self.searchBar.placeholder = @"Locating...";
-    self.searchBar.translucent = YES;
-//    self.navigationItem.titleView = self.searchBar;
-
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    _titleView = [TitleViewNavigationItemView new];
+    self.navigationItem.titleView = self.titleView;
     
     [self reload];
     [self updateBackgroundColor];
@@ -60,6 +58,8 @@
     [super viewWillLayoutSubviews];
     
 //    self.activityIndicatorView.center = self.parentViewController.view.center;
+    
+    self.titleView.frame = self.navigationController.navigationBar.bounds;
     
     CGRect activityFrame = self.activityIndicatorView.frame;
     activityFrame.origin.x = self.view.bounds.size.width / 2 - activityFrame.size.width / 2;
@@ -126,7 +126,9 @@
             
             CLPlacemark *placemark = [placemarks firstObject];
             
-            self.title = placemark.name;
+            self.titleView.titleLabel.text = placemark.name;
+            self.titleView.detailLabel.text = placemark.subAdministrativeArea;
+            [self.titleView animateIn];
         }];
         
         [self addSection:departureSection];
@@ -161,7 +163,7 @@
 
 - (UIColor *)navigationBarColor
 {
-    return [[UIColor blackColor] colorWithAlphaComponent:0.2];
+    return [[UIColor blackColor] colorWithAlphaComponent:0.4];
 }
 
 @end
