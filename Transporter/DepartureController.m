@@ -55,6 +55,8 @@
 {
     
     [self.requestManager GET:@"departures" parameters:query success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        
+        NSLog(@"Response: %@", [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil] encoding:NSUTF8StringEncoding]);
                 
         NSArray *stops = [Model modelsWithDictionaries:responseObject[@"stops"] rootClass:[Stop class]];
         NSArray *routes = [Model modelsWithDictionaries:responseObject[@"routes"] rootClass:[Route class]];
