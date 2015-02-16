@@ -40,7 +40,9 @@
     [self.view addSubview:self.mapView];
     
     _departureBarView = [DepartureBarView new];
-    self.departureBarView.departure = self.departure;
+    self.departureBarView.headsignLabel.text = self.departure.headsign;
+    self.departureBarView.stopLabel.text = self.departure.stop.title;
+    
     self.departureBarView.backgroundColor = self.departure.route.color;
     [self.view addSubview:self.departureBarView];
     

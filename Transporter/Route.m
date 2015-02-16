@@ -18,6 +18,7 @@
         _shortName = [dictionary[@"short_name"] lowercaseString];
         
         // If we have a colour from the API, use it.
+        // Only temporary so forgive the awfulness.
         if (![dictionary[@"color"] isEqual:[NSNull null]]) {
             
             NSInteger index = [dictionary[@"color"] integerValue];
@@ -53,6 +54,7 @@
 
 + (NSArray *)colors
 {
+    // Load these from a nice Info.plist sometime...
     NSArray *colours = @[
                          [UIColor colorWithRed:0.87 green:0.29 blue:0.3 alpha:1],
                          [UIColor colorWithRed:0.88 green:0.48 blue:0.27 alpha:1],

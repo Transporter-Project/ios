@@ -85,6 +85,9 @@
         
         self.loading = NO;
         
+        // This whole thing is one gigantic bag of sadness... look at refactoring / breaking things out.
+        // ONLY 10 MINUTES TILL DEMO. 🚨 MAKE IT WORK!!11 🚨
+        
         NSMutableArray *points = [NSMutableArray arrayWithCapacity:departures.count];
         NSMutableArray *pointDeltas = [NSMutableArray arrayWithCapacity:departures.count];
         __block NSInteger lowestPointDelta = MAXFLOAT;

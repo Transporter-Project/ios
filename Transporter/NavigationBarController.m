@@ -32,10 +32,12 @@
 {
     [super viewDidLoad];
     
+    // Create a faux navigation bar background so we have a solod colour, instead of Ive's blur.
     self.navigationBarBackground = [UIView new];
     self.navigationBarBackground.backgroundColor = [UIColor redColor];
     [self.view.layer insertSublayer:self.navigationBarBackground.layer atIndex:1];
-    
+
+    // Hack to remove the blur
     [self.navigationBar setShadowImage:[UIImage imageNamed:@"NavigationBar-transparent"]];
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavigationBar-transparent"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"OpenSans" size:24]}];
@@ -57,6 +59,7 @@
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
+    // Update navigation bar background colour when we move about
     if ([viewController respondsToSelector:@selector(navigationBarColor)]) {
         
         id vc = viewController;

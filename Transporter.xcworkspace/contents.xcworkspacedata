@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Lightning Table/&#x26a1; LightningTable.xcodeproj">
+      location = "group:Transporter.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Transporter.xcodeproj">
+      location = "group:Lightning Table/&#x26a1; LightningTable.xcodeproj">
    </FileRef>
 </Workspace>
