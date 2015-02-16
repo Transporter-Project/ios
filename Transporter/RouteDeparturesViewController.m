@@ -9,12 +9,10 @@
 #import "RouteDeparturesViewController.h"
 #import "TransporterKit.h"
 #import "DepartureTimelinePoint.h"
-#import "PCAngularActivityIndicatorView.h"
 #import "DepartureBarView.h"
+#import "NavigationBarController.h"
 
 @interface RouteDeparturesViewController ()
-
-@property (readonly, strong) PCAngularActivityIndicatorView *activityIndicatorView;
 
 @end
 
@@ -41,10 +39,6 @@
     self.departureBarView.stopLabel.text = [NSString stringWithFormat:@"Departures from %@", self.stop.title];
     self.departureBarView.backgroundColor = self.route.color;
     
-    _activityIndicatorView = [[PCAngularActivityIndicatorView alloc] initWithActivityIndicatorStyle:PCAngularActivityIndicatorViewStyleLarge];
-    self.activityIndicatorView.color = [UIColor whiteColor];
-    [self.parentViewController.view addSubview:self.activityIndicatorView];
-    
     self.view.backgroundColor = self.route.color;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
  
@@ -54,9 +48,24 @@
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
-    
-    self.activityIndicatorView.center = self.parentViewController.view.center;
 }
+
+#pragma mark - Loading
+
+- (BOOL)isLoading
+{
+    return self.loading;
+}
+
+- (void)setLoading:(BOOL)loading
+{
+    [self willChangeValueForKey:@"loading"];
+    _loading = loading;
+    [self setNeedsActivityIndicatorUpdate];
+    [self didChangeValueForKey:@"loading"];
+}
+
+#pragma mark - Table View delegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -70,11 +79,14 @@
 
 - (void)reload
 {
-    [self.activityIndicatorView startAnimating];
+    self.loading = YES;
     
     [self.departureController departuresForStop:self.stop withRoute:self.route completion:^(NSArray *departures, NSArray *routes, NSArray *stops, CLLocation *location, NSError *error) {
         
-        [self.activityIndicatorView stopAnimating];
+        self.loading = NO;
+        
+        // This whole thing is one gigantic bag of sadness... look at refactoring / breaking things out.
+        // ONLY 10 MINUTES TILL DEMO. 🚨 MAKE IT WORK!!11 🚨
         
         NSMutableArray *points = [NSMutableArray arrayWithCapacity:departures.count];
         NSMutableArray *pointDeltas = [NSMutableArray arrayWithCapacity:departures.count];
@@ -108,7 +120,6 @@
             
             [points addObject:point];
             previousPoint = point;
-            
         }];
         
         [points enumerateObjectsUsingBlock:^(DepartureTimelinePoint *point, NSUInteger idx, BOOL *stop) {
@@ -133,7 +144,6 @@
         [self animateCellsIn];
         [self.departureBarView animateIn];
     }];
-
 }
 
 - (void)animateCellsIn
@@ -145,13 +155,20 @@
     
     [self.tableView.visibleCells enumerateObjectsUsingBlock:^(UITableViewCell *cell, NSUInteger idx, BOOL *stop) {
         
-        [UIView animateWithDuration:0.4 delay:0.08 * idx options:kNilOptions animations:^{
+        [UIView animateWithDuration:0.3 delay:0.05 * idx options:kNilOptions animations:^{
             
             cell.alpha = 1.0;
             cell.transform = CGAffineTransformMakeScale(1.0, 1.0);
             
         } completion:nil];
     }];
+}
+
+#pragma mark - Navigation bar delegate
+
+- (UIColor *)navigationBarColor
+{
+    return self.route.color;
 }
 
 @end

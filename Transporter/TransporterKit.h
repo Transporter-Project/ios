@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Phillip Caudell. All rights reserved.
 //
 
-static NSString * const TPAPIBaseAddress = @"http://192.168.0.11:1447/v1";
+static NSString * const TPAPIBaseAddress = @"http://api.transporterapp.co.uk/v1";
 
 #import "AppController.h"
 #import "DepartureController.h"

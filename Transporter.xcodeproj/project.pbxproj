@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13195BA11A9277C70038FCCA /* libLightningTable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13195BA01A9277C70038FCCA /* libLightningTable.a */; };
 		1363CA711A5AEEA6008FC7AA /* NSDate+TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA6F1A5AEEA6008FC7AA /* NSDate+TimeAgo.m */; };
 		1363CA721A5AEEA6008FC7AA /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1363CA701A5AEEA6008FC7AA /* NSDateTimeAgo.bundle */; };
 		1363CA761A5AF21F008FC7AA /* MapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA751A5AF21F008FC7AA /* MapTableViewCell.m */; };
@@ -17,7 +18,6 @@
 		1363CA841A5C9B52008FC7AA /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1363CA821A5C9B52008FC7AA /* OpenSans-Semibold.ttf */; };
 		1363CA871A5D99D5008FC7AA /* DepartureDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */; };
 		1363CA8A1A5DD628008FC7AA /* TripCallingPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA891A5DD628008FC7AA /* TripCallingPoint.m */; };
-		1363CA8D1A5DE1D9008FC7AA /* LocationSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */; };
 		1363CA901A5DE3D7008FC7AA /* NavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */; };
 		139266031A5EE1D900AF8E53 /* DepartureTimelinePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 139266021A5EE1D900AF8E53 /* DepartureTimelinePoint.m */; };
 		139266061A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 139266051A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m */; };
@@ -35,7 +35,6 @@
 		13BAB2AB1A5AD0A40043FA14 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2AA1A5AD0A40043FA14 /* Model.m */; };
 		13BAB2AF1A5AD17C0043FA14 /* DepartureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2AE1A5AD17C0043FA14 /* DepartureController.m */; };
 		13BAB2B21A5AD1A10043FA14 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAB2B11A5AD1A10043FA14 /* AppController.m */; };
-		13BAB2C01A5AE7530043FA14 /* libLightningTable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BAB2BF1A5AE7530043FA14 /* libLightningTable.a */; };
 		13CF587B1A5ECF840060E625 /* RouteDeparturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF587A1A5ECF840060E625 /* RouteDeparturesViewController.m */; };
 		13D3A84A1A862986005E5CE4 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A8381A862986005E5CE4 /* AFHTTPRequestOperation.m */; };
 		13D3A84B1A862986005E5CE4 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D3A83A1A862986005E5CE4 /* AFHTTPRequestOperationManager.m */; };
@@ -70,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13195BA01A9277C70038FCCA /* libLightningTable.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLightningTable.a; path = "Lightning Table/build/Debug-iphoneos/libLightningTable.a"; sourceTree = "<group>"; };
 		1363CA6E1A5AEEA6008FC7AA /* NSDate+TimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeAgo.h"; sourceTree = "<group>"; };
 		1363CA6F1A5AEEA6008FC7AA /* NSDate+TimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeAgo.m"; sourceTree = "<group>"; };
 		1363CA701A5AEEA6008FC7AA /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = "<group>"; };
@@ -87,8 +87,6 @@
 		1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartureDetailViewController.m; sourceTree = "<group>"; };
 		1363CA881A5DD628008FC7AA /* TripCallingPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripCallingPoint.h; sourceTree = "<group>"; };
 		1363CA891A5DD628008FC7AA /* TripCallingPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripCallingPoint.m; sourceTree = "<group>"; };
-		1363CA8B1A5DE1D9008FC7AA /* LocationSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSearchViewController.h; sourceTree = "<group>"; };
-		1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSearchViewController.m; sourceTree = "<group>"; };
 		1363CA8E1A5DE3D7008FC7AA /* NavigationBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBarController.h; sourceTree = "<group>"; };
 		1363CA8F1A5DE3D7008FC7AA /* NavigationBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarController.m; sourceTree = "<group>"; };
 		139266011A5EE1D900AF8E53 /* DepartureTimelinePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartureTimelinePoint.h; sourceTree = "<group>"; };
@@ -175,7 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13BAB2C01A5AE7530043FA14 /* libLightningTable.a in Frameworks */,
+				13195BA11A9277C70038FCCA /* libLightningTable.a in Frameworks */,
 				13BAB2A51A5ACF830043FA14 /* MapKit.framework in Frameworks */,
 				13BAB2A31A5ACF7F0043FA14 /* CoreLocation.framework in Frameworks */,
 			);
@@ -191,23 +189,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1363CA731A5AF208008FC7AA /* Views */ = {
+		13195BA21A9278460038FCCA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				1363CA741A5AF21F008FC7AA /* MapTableViewCell.h */,
 				1363CA751A5AF21F008FC7AA /* MapTableViewCell.m */,
-				1363CA771A5AF298008FC7AA /* MapTableRow.h */,
-				1363CA781A5AF298008FC7AA /* MapTableRow.m */,
 				1363CA7B1A5C8CA6008FC7AA /* DepartureTableViewCell.h */,
 				1363CA7C1A5C8CA6008FC7AA /* DepartureTableViewCell.m */,
+				139266041A5EE36900AF8E53 /* DepartureTimelineTableViewCell.h */,
+				139266051A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		13195BA31A9278630038FCCA /* Other */ = {
+			isa = PBXGroup;
+			children = (
 				1363CA7E1A5C985B008FC7AA /* HighlightView.h */,
 				1363CA7F1A5C985B008FC7AA /* HighlightView.m */,
 				13D3A8721A8667DB005E5CE4 /* DepartureBarView.h */,
 				13D3A8731A8667DB005E5CE4 /* DepartureBarView.m */,
-				139266041A5EE36900AF8E53 /* DepartureTimelineTableViewCell.h */,
-				139266051A5EE36900AF8E53 /* DepartureTimelineTableViewCell.m */,
 				13D3A8751A86BED4005E5CE4 /* TitleViewNavigationItemView.h */,
 				13D3A8761A86BED4005E5CE4 /* TitleViewNavigationItemView.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		1363CA731A5AF208008FC7AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				13195BA21A9278460038FCCA /* Cells */,
+				13195BA31A9278630038FCCA /* Other */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -215,8 +227,6 @@
 		13BAB2651A5ACD2E0043FA14 = {
 			isa = PBXGroup;
 			children = (
-				13BAB2A41A5ACF830043FA14 /* MapKit.framework */,
-				13BAB2A21A5ACF7F0043FA14 /* CoreLocation.framework */,
 				13BAB2701A5ACD2E0043FA14 /* Transporter */,
 				13BAB28A1A5ACD2E0043FA14 /* TransporterTests */,
 				13BAB26F1A5ACD2E0043FA14 /* Products */,
@@ -239,10 +249,10 @@
 				13BAB2B31A5AD2070043FA14 /* TransporterKit.h */,
 				13BAB2751A5ACD2E0043FA14 /* AppDelegate.h */,
 				13BAB2761A5ACD2E0043FA14 /* AppDelegate.m */,
+				13BAB29B1A5ACF260043FA14 /* Models */,
+				13BAB2AC1A5AD16E0043FA14 /* Controllers */,
 				13BAB29A1A5ACDC10043FA14 /* View Controllers */,
 				1363CA731A5AF208008FC7AA /* Views */,
-				13BAB2AC1A5AD16E0043FA14 /* Controllers */,
-				13BAB29B1A5ACF260043FA14 /* Models */,
 				13BAB27E1A5ACD2E0043FA14 /* Images.xcassets */,
 				13BAB2801A5ACD2E0043FA14 /* LaunchScreen.xib */,
 				13BAB2711A5ACD2E0043FA14 /* Supporting Files */,
@@ -293,8 +303,6 @@
 				1363CA861A5D99D5008FC7AA /* DepartureDetailViewController.m */,
 				13CF58791A5ECF840060E625 /* RouteDeparturesViewController.h */,
 				13CF587A1A5ECF840060E625 /* RouteDeparturesViewController.m */,
-				1363CA8B1A5DE1D9008FC7AA /* LocationSearchViewController.h */,
-				1363CA8C1A5DE1D9008FC7AA /* LocationSearchViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -314,6 +322,8 @@
 				1363CA891A5DD628008FC7AA /* TripCallingPoint.m */,
 				139266011A5EE1D900AF8E53 /* DepartureTimelinePoint.h */,
 				139266021A5EE1D900AF8E53 /* DepartureTimelinePoint.m */,
+				1363CA771A5AF298008FC7AA /* MapTableRow.h */,
+				1363CA781A5AF298008FC7AA /* MapTableRow.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -377,6 +387,9 @@
 		F3A82BF8C8650DA70642086E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				13195BA01A9277C70038FCCA /* libLightningTable.a */,
+				13BAB2A41A5ACF830043FA14 /* MapKit.framework */,
+				13BAB2A21A5ACF7F0043FA14 /* CoreLocation.framework */,
 				13D3A86D1A862F94005E5CE4 /* AddressBook.framework */,
 				13BAB2BF1A5AE7530043FA14 /* libLightningTable.a */,
 			);
@@ -486,7 +499,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13D3A8681A86299B005E5CE4 /* UIButton+AFNetworking.m in Sources */,
-				1363CA8D1A5DE1D9008FC7AA /* LocationSearchViewController.m in Sources */,
 				1363CA8A1A5DD628008FC7AA /* TripCallingPoint.m in Sources */,
 				13BAB2AF1A5AD17C0043FA14 /* DepartureController.m in Sources */,
 				13D3A86A1A86299B005E5CE4 /* UIProgressView+AFNetworking.m in Sources */,
@@ -641,17 +653,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
-					"\"$(SRCROOT)/LightningTable/LightningTable\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Lightning Table/LightningTable\"";
 				INFOPLIST_FILE = Transporter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LightningTable/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Lightning",
+					"Table/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -662,17 +672,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
-					"\"$(SRCROOT)/LightningTable/LightningTable\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Lightning Table/LightningTable\"";
 				INFOPLIST_FILE = Transporter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LightningTable/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Lightning",
+					"Table/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

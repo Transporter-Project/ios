@@ -86,6 +86,8 @@
         return;
     }
     
+    self.hidden = NO;
+    
     _animating = YES;
     
     CAKeyframeAnimation *inAnimation = [CAKeyframeAnimation animationWithKeyPath:@"strokeEnd"];
@@ -133,6 +135,8 @@
         
         self.shapeLayer.hidden = self.hidesWhenStopped;
         [self.shapeLayer removeAllAnimations];
+        
+        self.hidden = YES;
     }];
 }
 

@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "LightningTable.h"
-#import "NavigationBarController.h"
 
 @class DepartureController;
 
-@interface DeparturesViewController : EKTableViewController <NavigationBarControllerDelegate>
+@interface DeparturesViewController : EKTableViewController
 
 @property (readonly, strong) DepartureController *departureController;
-@property (nonatomic, assign, getter = isLoading) BOOL loading;
+@property (nonatomic, assign) BOOL loading;
 
 @end

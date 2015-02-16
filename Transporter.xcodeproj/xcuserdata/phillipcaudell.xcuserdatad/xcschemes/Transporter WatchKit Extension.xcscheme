@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13BAB26D1A5ACD2E0043FA14"
-               BuildableName = "Transporter.app"
-               BlueprintName = "Transporter"
+               BlueprintIdentifier = "361BD2461A862A6300F818CA"
+               BuildableName = "Transporter WatchKit Extension.appex"
+               BlueprintName = "Transporter WatchKit Extension"
                ReferencedContainer = "container:Transporter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,15 +29,6 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13BAB26D1A5ACD2E0043FA14"
-            BuildableName = "Transporter.app"
-            BlueprintName = "Transporter"
-            ReferencedContainer = "container:Transporter.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -47,16 +38,29 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      allowLocationSimulation = "YES"
+      notificationPayloadFile = "Transporter WatchKit Extension/PushNotificationPayload.apns">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard"
+         RemotePath = "/Transporter">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13BAB26D1A5ACD2E0043FA14"
-            BuildableName = "Transporter.app"
-            BlueprintName = "Transporter"
+            BlueprintIdentifier = "361BD2551A862A6300F818CA"
+            BuildableName = "Transporter WatchKit App.app"
+            BlueprintName = "Transporter WatchKit App"
             ReferencedContainer = "container:Transporter.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "361BD2551A862A6300F818CA"
+            BuildableName = "Transporter WatchKit App.app"
+            BlueprintName = "Transporter WatchKit App"
+            ReferencedContainer = "container:Transporter.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -66,15 +70,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13BAB26D1A5ACD2E0043FA14"
-            BuildableName = "Transporter.app"
-            BlueprintName = "Transporter"
+            BlueprintIdentifier = "361BD2461A862A6300F818CA"
+            BuildableName = "Transporter WatchKit Extension.appex"
+            BlueprintName = "Transporter WatchKit Extension"
             ReferencedContainer = "container:Transporter.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

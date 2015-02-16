@@ -5,6 +5,6 @@
       location = "group:Transporter.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:LightningTable/&#x26a1; LightningTable.xcodeproj">
+      location = "group:Lightning Table/&#x26a1; LightningTable.xcodeproj">
    </FileRef>
 </Workspace>

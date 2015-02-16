@@ -39,18 +39,6 @@
     self.stopLabel.frame = CGRectMake(0, 20, self.bounds.size.width, 25);
 }
 
-- (void)setDeparture:(Departure *)departure
-{
-    [self willChangeValueForKey:@"departure"];
-    
-    _departure = departure;
-    
-    self.headsignLabel.text = self.departure.headsign;
-    self.stopLabel.text = self.departure.stop.title;
-
-    [self didChangeValueForKey:@"departure"];
-}
-
 - (void)animateIn
 {
     self.headsignLabel.transform = CGAffineTransformMakeTranslation(0, self.bounds.size.height);

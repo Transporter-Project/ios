@@ -10,13 +10,7 @@
 #import "TransporterKit.h"
 #import "RouteDeparturesViewController.h"
 #import "DepartureBarView.h"
-#import "PCAngularActivityIndicatorView.h"
-
-@interface DepartureDetailViewController ()
-
-@property (readonly, strong) PCAngularActivityIndicatorView *activityIndicatorView;
-
-@end
+#import "NavigationBarController.h"
 
 @implementation DepartureDetailViewController
 
@@ -46,28 +40,34 @@
     [self.view addSubview:self.mapView];
     
     _departureBarView = [DepartureBarView new];
-    self.departureBarView.departure = self.departure;
+    self.departureBarView.headsignLabel.text = self.departure.headsign;
+    self.departureBarView.stopLabel.text = self.departure.stop.title;
+    
     self.departureBarView.backgroundColor = self.departure.route.color;
     [self.view addSubview:self.departureBarView];
-    
-    _activityIndicatorView = [[PCAngularActivityIndicatorView alloc] initWithActivityIndicatorStyle:PCAngularActivityIndicatorViewStyleLarge];
-    self.activityIndicatorView.color = [UIColor whiteColor];
-    [self.parentViewController.view addSubview:self.activityIndicatorView];
     
     self.view.backgroundColor = self.departure.route.color;
     
     [self reload];
 }
 
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    self.mapView.frame = self.view.bounds;
+    self.departureBarView.frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height + 20, self.view.bounds.size.width, 50);
+}
+
 - (void)reload
 {
     self.mapView.alpha = 0.0;
-    [self.activityIndicatorView startAnimating];
+    self.loading = YES;
     
     [self.departureController tripDetailsForDeparture:self.departure completion:^(NSArray *callingPoints, NSArray *stops, NSError *error) {
-        
-        [self.activityIndicatorView stopAnimating];
     
+        self.loading = NO;
+        
         [UIView animateWithDuration:0.5 animations:^{
             self.mapView.alpha = 1.0;
         }];
@@ -85,20 +85,30 @@
     }];
 }
 
-- (void)viewWillLayoutSubviews
+#pragma mark - Loading
+
+- (BOOL)isLoading
 {
-    [super viewWillLayoutSubviews];
-    
-    self.mapView.frame = self.view.bounds;
-    self.departureBarView.frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height + 20, self.view.bounds.size.width, 50);
-    self.activityIndicatorView.center = self.parentViewController.view.center;
+    return self.loading;
 }
+
+- (void)setLoading:(BOOL)loading
+{
+    [self willChangeValueForKey:@"loading"];
+    _loading = loading;
+    [self setNeedsActivityIndicatorUpdate];
+    [self didChangeValueForKey:@"loading"];
+}
+
+#pragma mark - Actions
 
 - (void)handleOtherTimes:(id)sender
 {
     RouteDeparturesViewController *viewController = [[RouteDeparturesViewController alloc] initWithStop:self.departure.stop route:self.departure.route];
     [self.navigationController pushViewController:viewController animated:YES];
 }
+
+#pragma mark - Map
 
 - (void)drawRouteWithCallingPoints:(NSArray *)callingPoints
 {
@@ -171,10 +181,6 @@
     }
     
     return annotationView;
-}
-
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
 }
 
 - (void)showUserAndStopAnimated:(BOOL)animated

@@ -27,6 +27,8 @@
 - (void)departuresNearCurrentLocationWithCompletion:(DepartureCompletion)completion
 {
     [self.locationManager requestAlwaysAuthorization];
+    
+    // Hardcoded location for time being ✌️
     [self departuresNearCoordinate:CLLocationCoordinate2DMake(50.719687, -1.885315) completion:completion];
 }
 
@@ -53,10 +55,7 @@
 
 - (void)departuresWithOptions:(NSDictionary *)query completion:(DepartureCompletion)completion
 {
-    
     [self.requestManager GET:@"departures" parameters:query success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        
-        NSLog(@"RESPONSEL: %@", responseObject) ;
         
         NSArray *stops = [Model modelsWithDictionaries:responseObject[@"stops"] rootClass:[Stop class]];
         NSArray *routes = [Model modelsWithDictionaries:responseObject[@"routes"] rootClass:[Route class]];
@@ -114,6 +113,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
+        completion(nil, nil, error);
     }];
 }
 

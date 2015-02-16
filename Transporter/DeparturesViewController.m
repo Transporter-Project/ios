@@ -9,15 +9,13 @@
 #import "DeparturesViewController.h"
 #import "TransporterKit.h"
 #import "DepartureDetailViewController.h"
-#import "LocationSearchViewController.h"
-#import "PCAngularActivityIndicatorView.h"
 #import "TitleViewNavigationItemView.h"
+#import "NavigationBarController.h"
 
 @interface DeparturesViewController ()
 
 @property (nonatomic, assign) NSInteger currentColorIndex;
 @property (nonatomic, strong) NSTimer *colorTimer;
-@property (nonatomic, strong) PCAngularActivityIndicatorView *activityIndicatorView;
 @property (nonatomic, strong) TitleViewNavigationItemView *titleView;
 
 @end
@@ -38,12 +36,6 @@
 {
     [super viewDidLoad];
     
-    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setDefaultTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    
-    _activityIndicatorView = [[PCAngularActivityIndicatorView alloc] initWithActivityIndicatorStyle:PCAngularActivityIndicatorViewStyleLarge];
-    self.activityIndicatorView.color = [UIColor whiteColor];
-    [self.view addSubview:self.activityIndicatorView];
-
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     _titleView = [TitleViewNavigationItemView new];
@@ -57,14 +49,7 @@
 {
     [super viewWillLayoutSubviews];
     
-//    self.activityIndicatorView.center = self.parentViewController.view.center;
-    
     self.titleView.frame = self.navigationController.navigationBar.bounds;
-    
-    CGRect activityFrame = self.activityIndicatorView.frame;
-    activityFrame.origin.x = self.view.bounds.size.width / 2 - activityFrame.size.width / 2;
-    activityFrame.origin.y = self.view.bounds.size.height / 2 - activityFrame.size.height;
-    self.activityIndicatorView.frame = activityFrame;
 }
 
 - (void)updateBackgroundColor
@@ -82,6 +67,8 @@
     self.currentColorIndex ++;
 }
 
+#pragma mark - Loading
+
 - (void)setLoading:(BOOL)loading
 {
     [super willChangeValueForKey:@"loading"];
@@ -91,18 +78,23 @@
     if (loading) {
         
         self.colorTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateBackgroundColor) userInfo:nil repeats:YES];
-        [self.activityIndicatorView startAnimating];
-        
     } else {
         
         [self.colorTimer invalidate];
         self.colorTimer = nil;
-        [self.activityIndicatorView stopAnimating];
-        
     }
     
+    [self setNeedsActivityIndicatorUpdate];
+
     [super didChangeValueForKey:@"loading"];
 }
+
+- (BOOL)isLoading
+{
+    return self.loading;
+}
+
+#pragma mark - Reload
 
 - (void)reload
 {
@@ -128,6 +120,7 @@
             
             self.titleView.titleLabel.text = placemark.name;
             self.titleView.detailLabel.text = placemark.subAdministrativeArea;
+            self.titleView.detailLabel.text = [NSString stringWithFormat:@"%lu stops and %lu routes nearby", (unsigned long)stops.count, (unsigned long)routes.count];
             [self.titleView animateIn];
         }];
         
@@ -155,11 +148,15 @@
     }];
 }
 
+#pragma mark - Actions
+
 - (void)handleDeparture:(Departure *)departure
 {    
     DepartureDetailViewController *viewController = [[DepartureDetailViewController alloc] initWithDeparture:departure];
     [self.navigationController pushViewController:viewController animated:YES];
 }
+
+#pragma mark - Navigation bar delegate
 
 - (UIColor *)navigationBarColor
 {
