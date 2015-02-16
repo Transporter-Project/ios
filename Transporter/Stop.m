@@ -10,6 +10,20 @@
 
 @implementation Stop
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
+{
+    if (self = [super initWithDictionary:dictionary]) {
+        
+        CLLocationDegrees latitude = [[dictionary[@"location"] lastObject] floatValue];
+        CLLocationDegrees longitude = [[dictionary[@"location"] firstObject] floatValue];
+
+        
+        _location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+    }
+    
+    return self;
+}
+
 #pragma mark - MKAnnotation
 
 - (NSString *)title

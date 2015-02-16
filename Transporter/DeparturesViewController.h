@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "LightningTable.h"
 
 @class DepartureController;
 
-@interface DeparturesViewController : UIViewController
+@interface DeparturesViewController : EKTableViewController
 
 @property (readonly, strong) DepartureController *departureController;
+@property (nonatomic, assign) BOOL loading;
 
 @end

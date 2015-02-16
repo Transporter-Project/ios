@@ -1,0 +1,3 @@
+[submodule "Lightning Table"]
+	path = Lightning Table
+	url = git@github.com:electrickangaroo/Lightning-Table.git

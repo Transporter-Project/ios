@@ -7,6 +7,8 @@
 //
 
 #import "Departure.h"
+#import "TransporterKit.h"
+#import "DepartureTableViewCell.h"
 
 @implementation Departure
 
@@ -17,9 +19,27 @@
         _departureDate = [NSDate dateWithTimeIntervalSince1970:[dictionary[@"departure"] integerValue]];
         _arrivalDate = [NSDate dateWithTimeIntervalSince1970:[dictionary[@"arrival"] integerValue]];
         _stopSequence = [dictionary[@"stop_sequence"] integerValue];
+        _tripId = dictionary[@"trip_id"];
     }
     
     return self;
+}
+
+#pragma mark - Row
+
+- (void)configureRowCell:(DepartureTableViewCell *)cell
+{
+    cell.departure = self;
+}
+
+- (CGFloat)rowHeightForConstraintSize:(CGSize)contraintSize
+{
+    return 100;
+}
+
+- (Class)rowCellClass
+{
+    return [DepartureTableViewCell class];
 }
 
 @end

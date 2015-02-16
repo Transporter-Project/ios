@@ -7,10 +7,14 @@
 //
 
 #import "Model.h"
+#import <UIKit/UIKit.h>
 
 @interface Route : Model
 
 @property (readonly, strong) NSString *shortName;
 @property (readonly, strong) NSString *longName;
+@property (nonatomic, strong) UIColor *color;
+
++ (NSArray *)colors;
 
 @end
