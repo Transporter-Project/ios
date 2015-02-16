@@ -10,6 +10,8 @@
 	<string>Transporter</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>35CC6A937F96A0DC86120AEA233F49B1B992A667</key>
+		<string>github.com:electrickangaroo/Lightning-Table.git</string>
 		<key>EF4B16933269571D8552274BFADECD73DE44ADE6</key>
 		<string>bitbucket.org:phillipcaudell/transporter-ios.git</string>
 		<key>F563DB6D6AE737BDF4F089CB0C2E84164C4784A9</key>
@@ -19,6 +21,8 @@
 	<string>Transporter.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>35CC6A937F96A0DC86120AEA233F49B1B992A667</key>
+		<string>../Lightning%20Table/</string>
 		<key>EF4B16933269571D8552274BFADECD73DE44ADE6</key>
 		<string>..</string>
 		<key>F563DB6D6AE737BDF4F089CB0C2E84164C4784A9</key>
@@ -32,6 +36,14 @@
 	<string>EF4B16933269571D8552274BFADECD73DE44ADE6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>35CC6A937F96A0DC86120AEA233F49B1B992A667</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Lightning%20Table</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
